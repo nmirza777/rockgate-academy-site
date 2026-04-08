@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rockgate Academy | From beginner to mortgage professional</title>
+  <meta name="description" content="Rockgate Academy offers CeMAP training and real-world industry guidance for people who want more than just exam prep." />
+  <style>
+    :root {
+      --primary: #1E2A38;
+      --secondary: #334155;
+      --accent: #C7A76C;
+      --bg-soft: #F8F6F1;
+      --white: #FFFFFF;
+      --border: #E5E7EB;
+      --text: #475569;
+      --shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+      --radius-xl: 24px;
+      --radius-lg: 18px;
+      --max: 1200px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      color: var(--primary);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .section { padding: 80px 0; }
+    .section-soft { background: var(--bg-soft); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 16px 0;
+    }
+
+    .brand-title { font-size: 1.15rem; font-weight: 800; margin: 0; }
+    .brand-subtitle { margin: 2px 0 0; font-size: 0.78rem; color: var(--text); }
+
+    .nav {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .nav a {
+      font-size: 0.95rem;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .nav a:hover { color: var(--primary); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 18px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .btn-primary:hover { opacity: 0.92; }
+
+    .btn-outline {
+      background: var(--white);
+      color: var(--secondary);
+      border-color: #CBD5E1;
+    }
+
+    .btn-outline:hover { background: #F8FAFC; }
+
+    .mobile-toggle {
+      display: none;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 10px 12px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .mobile-menu {
+      display: none;
+      border-top: 1px solid var(--border);
+      background: var(--white);
+      padding: 16px 0 20px;
+    }
+
+    .mobile-menu.open { display: block; }
+    .mobile-menu a {
+      display: block;
+      padding: 14px 16px;
+      border-radius: 16px;
+      color: var(--secondary);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .mobile-menu a:hover { background: #F8FAFC; }
+
+    .hero {
+      background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f8f6f1 100%);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-grid,
+    .two-col,
+    .founder-grid,
+    .trust-grid,
+    .cta-grid,
+    .footer-grid {
+      display: grid;
+      gap: 32px;
+    }
+
+    .hero-grid { grid-template-columns: 1.15fr 0.85fr; align-items: center; }
+    .two-col { grid-template-columns: 1.1fr 0.9fr; }
+    .founder-grid { grid-template-columns: 0.8fr 1.2fr; align-items: center; }
+    .trust-grid { grid-template-columns: 1.1fr 0.9fr; }
+    .cta-grid { grid-template-columns: 1.05fr 0.95fr; align-items: start; }
+    .footer-grid { grid-template-columns: 1.2fr 0.8fr 0.8fr; }
+
+    .eyebrow {
+      display: inline-flex;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--white);
+      box-shadow: var(--shadow);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--secondary);
+    }
+
+    h1, h2, h3, h4, p { margin-top: 0; }
+    h1 {
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      line-height: 1.08;
+      margin: 18px 0 0;
+      letter-spacing: -0.03em;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 3vw, 3rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 0;
+    }
+
+    h3 { font-size: 1.45rem; line-height: 1.25; margin-bottom: 0; }
+    .lead {
+      font-size: 1.12rem;
+      color: var(--text);
+      margin-top: 22px;
+      max-width: 720px;
+    }
+
+    .sublead { font-size: 1.03rem; color: var(--text); }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .tagline {
+      margin-top: 16px;
+      display: inline-flex;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+      color: var(--text);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .grid-2, .grid-3, .grid-4 {
+      display: grid;
+      gap: 20px;
+    }
+
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      padding: 24px;
+    }
+
+    .card-soft {
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      padding: 28px;
+    }
+
+    .small-title {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #64748B;
+      margin-bottom: 10px;
+    }
+
+    .muted { color: var(--text); }
+
+    ul.clean {
+      list-style: none;
+      padding: 0;
+      margin: 18px 0 0;
+    }
+
+    ul.clean li {
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .program-badge {
+      display: inline-flex;
+      margin-top: 18px;
+      border: 1px solid var(--border);
+      background: var(--bg-soft);
+      color: var(--text);
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      box-shadow: var(--shadow);
+    }
+
+    .pricing-card {
+      position: relative;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+      padding: 32px 28px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 30px rgba(15, 23, 42, 0.12);
+    }
+
+    .pricing-card.featured {
+      background: var(--primary);
+      color: var(--white);
+      border: 2px solid var(--primary);
+      box-shadow: 0 18px 30px rgba(15, 23, 42, 0.22);
+    }
+
+    .featured .muted,
+    .featured ul.clean li,
+    .featured .price-label,
+    .featured .package-note { color: #E2E8F0; }
+
+    .best-value {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent);
+      color: var(--primary);
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 8px 14px;
+      border-radius: 999px;
+    }
+
+    .price-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #64748B;
+      margin-top: 12px;
+    }
+
+    .price {
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin: 6px 0 0;
+    }
+
+    .package-note {
+      margin-top: 14px;
+      font-size: 0.82rem;
+      text-align: center;
+      color: #64748B;
+    }
+
+    .featured .btn-primary {
+      background: var(--white);
+      color: var(--primary);
+    }
+
+    .photo-placeholder {
+      min-height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px dashed #CBD5E1;
+      border-radius: 24px;
+      background: var(--white);
+      text-align: center;
+      color: #64748B;
+      padding: 20px;
+    }
+
+    .faq-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      padding: 24px;
+      margin-bottom: 16px;
+    }
+
+    .cta-section {
+      background: var(--primary);
+      color: var(--white);
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .cta-section .lead,
+    .cta-section .sublead,
+    .cta-section .muted,
+    .cta-section p { color: #CBD5E1; }
+
+    .form-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 28px;
+      padding: 28px;
+      backdrop-filter: blur(10px);
+    }
+
+    .field {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.08);
+      color: var(--white);
+      font-size: 0.96rem;
+      margin-bottom: 14px;
+      outline: none;
+    }
+
+    .field::placeholder { color: #CBD5E1; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      background: var(--white);
+    }
+
+    .footer-main {
+      padding: 48px 0;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      color: #64748B;
+      font-size: 0.92rem;
+      padding: 22px 0;
+    }
+
+    .footer-bottom-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 992px) {
+      .hero-grid,
+      .two-col,
+      .founder-grid,
+      .trust-grid,
+      .cta-grid,
+      .footer-grid,
+      .grid-4,
+      .grid-3,
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .section { padding: 64px 0; }
+      .nav, .desktop-cta { display: none; }
+      .mobile-toggle { display: inline-flex; }
+      .topbar-inner { padding: 14px 0; }
+      h1 { font-size: 2.5rem; }
+      .hero-actions { flex-direction: column; }
+      .hero-actions .btn { width: 100%; }
+      .container { width: min(var(--max), calc(100% - 24px)); }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div>
+        <p class="brand-title">Rockgate Academy</p>
+        <p class="brand-subtitle">From beginner to mortgage professional</p>
+      </div>
+
+      <nav class="nav">
+        <a href="#top">Home</a>
+        <a href="#story">Our Story</a>
+        <a href="#packages">Programmes</a>
+        <a href="#faqs">FAQs</a>
+        <a href="#enquire">Enquire</a>
+      </nav>
+
+      <a class="btn btn-primary desktop-cta" href="#enquire">Enquire Now</a>
+
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">☰</button>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="container">
+        <a href="#top">Home</a>
+        <a href="#story">Our Story</a>
+        <a href="#packages">Programmes</a>
+        <a href="#faqs">FAQs</a>
+        <a href="#enquire">Enquire</a>
+        <a class="btn btn-primary" href="#enquire" style="width:100%; margin-top:8px;">Enquire Now</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero section">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Rockgate Academy • From beginner to mortgage professional</span>
+          <h1>From beginner to mortgage professional.</h1>
+          <div class="tagline">Start with CeMAP. Build beyond it.</div>
+          <p class="lead">
+            Rockgate Academy offers CeMAP training and real-world industry guidance for people who want more than just exam prep. We help learners build knowledge, confidence, and direction — from qualification through to understanding the wider journey into the mortgage industry.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#packages">Explore Programmes</a>
+            <a class="btn btn-outline" href="#story">Our Story</a>
+          </div>
+          <div class="grid-2" style="margin-top:28px;">
+            <div class="card"><p class="muted">Live online CeMAP training with structured weekly support</p></div>
+            <div class="card"><p class="muted">Clear guidance for complete beginners and career changers</p></div>
+            <div class="card"><p class="muted">Practical support on what comes after CeMAP</p></div>
+            <div class="card"><p class="muted">A pathway designed to build confidence, clarity, and direction</p></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="small-title">The Rockgate Journey</div>
+          <h3>A clearer path into the mortgage industry</h3>
+          <p class="sublead" style="margin-top:16px;">
+            Rockgate Academy was created for people who want more than just a course. Many learners can find CeMAP materials, but still feel unsure about where to begin, how the industry works, and what comes after passing. We exist to bridge that gap.
+          </p>
+          <div class="card-soft" style="margin-top:18px;">
+            <div class="small-title">Step 1</div>
+            <h4>Start with CeMAP</h4>
+            <p class="muted" style="margin-top:10px;">Build strong foundations with structured teaching, practical explanations, and a clear study plan.</p>
+          </div>
+          <div class="card-soft" style="margin-top:16px;">
+            <div class="small-title">Step 2</div>
+            <h4>Understand the Industry</h4>
+            <p class="muted" style="margin-top:10px;">Learn what the mortgage profession really looks like beyond the exams, including routes, roles, and progression.</p>
+          </div>
+          <div class="card-soft" style="margin-top:16px;">
+            <div class="small-title">Step 3</div>
+            <h4>Build Beyond It</h4>
+            <p class="muted" style="margin-top:10px;">Move forward with greater clarity on career direction, confidence, and the practical next steps after qualification.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="story" class="section">
+      <div class="container two-col">
+        <div>
+          <div class="small-title">Our Story</div>
+          <h2>More than CeMAP training</h2>
+          <p class="lead">
+            Rockgate Academy was created from lived experience and from seeing how confusing the journey into mortgage advice can feel for people starting from scratch. Too often, learners are shown how to pass exams, but not how to understand the bigger picture.
+          </p>
+          <p class="lead" style="font-size:1.03rem;">
+            For many people, CeMAP is only the beginning. The real challenge is understanding what comes next — the pathways, the choices, the confidence, and the direction needed to move from qualification into a real career. Rockgate Academy was built to make that journey clearer, more practical, and more supportive.
+          </p>
+        </div>
+        <div class="card-soft">
+          <div class="small-title">Our Mission</div>
+          <h3>To help learners build clarity, confidence, and career direction</h3>
+          <p class="sublead" style="margin-top:16px;">
+            We do not just want learners to memorise information. We want them to understand the industry, believe in their ability to succeed, and move forward with a stronger sense of direction.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="container">
+        <div class="small-title">Who We Help</div>
+        <h2>Built for people who want a clear route forward</h2>
+        <p class="lead" style="max-width:800px;">
+          Rockgate Academy is designed for learners who want more than information. It is for those who want structure, support, and a better understanding of how to move into the mortgage profession.
+        </p>
+        <div class="grid-4" style="margin-top:28px;">
+          <div class="card"><p class="muted">People starting from scratch</p></div>
+          <div class="card"><p class="muted">Career changers entering financial services</p></div>
+          <div class="card"><p class="muted">Aspiring mortgage advisers</p></div>
+          <div class="card"><p class="muted">Learners who want more than just exam prep</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="packages" class="section">
+      <div class="container">
+        <div class="small-title">Programmes</div>
+        <h2>Choose the level of support that fits your journey</h2>
+        <p class="lead" style="max-width:760px;">
+          Whether you want focused CeMAP support or a fuller pathway into the industry, Rockgate Academy offers a more structured and supportive route forward.
+        </p>
+
+        <div class="program-badge">Prelaunch pricing now available for the founding cohort</div>
+
+        <div class="grid-3" style="margin-top:28px;">
+          <div class="pricing-card">
+            <h3>CeMAP Core</h3>
+            <div class="price-label">Launch Price</div>
+            <div class="price">£495</div>
+            <p class="sublead" style="margin-top:16px;">A structured live online programme for learners who want to get CeMAP-qualified with confidence.</p>
+            <ul class="clean">
+              <li>• 8-week live online group programme</li>
+              <li>• Weekly teaching session</li>
+              <li>• Weekly revision / Q&amp;A clinic</li>
+              <li>• Replay access</li>
+              <li>• Study planner and supporting materials</li>
+              <li>• Exam strategy guidance</li>
+            </ul>
+            <div style="margin-top:26px;">
+              <a class="btn btn-primary" href="#enquire" style="width:100%;">Register Interest</a>
+              <p class="package-note">Ideal if you want focused CeMAP support and structure</p>
+            </div>
+          </div>
+
+          <div class="pricing-card featured">
+            <div class="best-value">Best Value</div>
+            <h3 style="margin-top:12px;">Complete Pathway</h3>
+            <div class="price-label">Launch Price</div>
+            <div class="price">£695</div>
+            <p class="sublead" style="margin-top:16px; color:#E2E8F0;">The full Rockgate Academy journey — from qualification to career direction.</p>
+            <ul class="clean">
+              <li>• Everything in CeMAP Core</li>
+              <li>• Everything in Beyond CeMAP</li>
+              <li>• Bonus career clarity session</li>
+              <li>• The strongest option for learners who want the full journey</li>
+            </ul>
+            <div style="margin-top:26px;">
+              <a class="btn btn-primary" href="#enquire" style="width:100%;">Join Founding Cohort Interest List</a>
+              <p class="package-note">Recommended for learners who want qualification and direction together</p>
+            </div>
+          </div>
+
+          <div class="pricing-card">
+            <h3>Beyond CeMAP</h3>
+            <div class="price-label">Launch Price</div>
+            <div class="price">£247</div>
+            <p class="sublead" style="margin-top:16px;">A practical career pathway programme for people who want clarity on what comes after qualification.</p>
+            <ul class="clean">
+              <li>• 4-week live online group programme</li>
+              <li>• What happens after CeMAP</li>
+              <li>• Regulated vs non-regulated roles explained simply</li>
+              <li>• Networks, firms, and career pathways</li>
+              <li>• CAS and competence explained in practical terms</li>
+              <li>• Action plan for your next steps</li>
+            </ul>
+            <div style="margin-top:26px;">
+              <a class="btn btn-primary" href="#enquire" style="width:100%;">Register Interest</a>
+              <p class="package-note">Perfect if you already want guidance on what comes next</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-soft" style="margin-top:30px;">
+          <div class="two-col" style="grid-template-columns: 1fr auto; align-items: center; gap: 22px;">
+            <div>
+              <h3>Prelaunch approach</h3>
+              <p class="sublead" style="margin-top:10px;">
+                For the first phase, Rockgate Academy is operating in prelaunch mode. That means learners can register interest, enquire about the programmes, and be part of the founding cohort before the full live rollout.
+              </p>
+            </div>
+            <div>
+              <a class="btn btn-primary" href="#enquire">Enquire About Prelaunch Access</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="container trust-grid">
+        <div>
+          <div class="small-title">Why Learners Can Trust Rockgate Academy</div>
+          <h2>Built on clarity, guidance, and real understanding</h2>
+          <p class="lead" style="font-size:1.03rem;">
+            Rockgate Academy was founded with a simple belief: people need more than just a course. They need a clearer path.
+          </p>
+          <p class="lead" style="font-size:1.03rem;">
+            Created from lived experience and a genuine understanding of the challenges many beginners face, Rockgate Academy is designed to make the route into mortgage advice feel more practical, more supportive, and less overwhelming.
+          </p>
+          <p class="lead" style="font-size:1.03rem;">
+            This is not just about helping learners prepare for CeMAP. It is about helping them understand the bigger picture, build confidence, and take meaningful steps towards becoming career-ready professionals.
+          </p>
+        </div>
+        <div>
+          <div class="card" style="margin-bottom:16px;">
+            <div class="small-title">Clarity-led approach</div>
+            <p class="muted">Rockgate Academy was created to make the path into mortgage advice feel clearer, more supportive, and less overwhelming for people starting out.</p>
+          </div>
+          <div class="card" style="margin-bottom:16px;">
+            <div class="small-title">More than exam prep</div>
+            <p class="muted">This is not only about CeMAP. It is about helping learners understand the bigger picture, build confidence, and move forward with real direction.</p>
+          </div>
+          <div class="card">
+            <div class="small-title">Built from lived experience</div>
+            <p class="muted">Rockgate Academy is grounded in genuine lived experience and a real understanding of the questions, uncertainty, and decisions people face at the beginning of their journey.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container founder-grid">
+        <div class="card-soft">
+          <div class="photo-placeholder">
+            <div>
+              <div class="small-title">Founder Image</div>
+              <p>Add a professional photo here</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="small-title">Meet the Founder</div>
+          <h2>A more personal and practical approach to learning</h2>
+          <p class="lead" style="font-size:1.03rem;">
+            Rockgate Academy was built from a genuine desire to help people navigate a journey that can often feel unclear at the start.
+          </p>
+          <p class="lead" style="font-size:1.03rem;">
+            After CeMAP, I experienced something many learners do not always talk about openly — uncertainty about what came next. Passing exams was an important milestone, but it did not automatically bring clarity about the next step, the wider industry pathway, or how to move forward with confidence.
+          </p>
+          <p class="lead" style="font-size:1.03rem;">
+            That experience, together with seeing how many aspiring professionals are left with similar questions, played a big part in the creation of Rockgate Academy and the desire to offer a more complete and supportive experience.
+          </p>
+          <div class="card-soft" style="margin-top:20px;">
+            <h3 style="font-size:1.2rem;">What learners can expect</h3>
+            <ul class="clean">
+              <li>• A supportive and encouraging learning environment</li>
+              <li>• Clear explanations without unnecessary complexity</li>
+              <li>• Real-world perspective beyond the syllabus</li>
+              <li>• Guidance that helps learners feel more confident about the road ahead</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faqs" class="section">
+      <div class="container">
+        <div class="small-title">Frequently Asked Questions</div>
+        <h2>Questions learners often ask</h2>
+        <div style="margin-top:28px;">
+          <div class="faq-item">
+            <h3 style="font-size:1.15rem;">Is Rockgate Academy only for people already in financial services?</h3>
+            <p class="muted" style="margin-top:12px;">No. Rockgate Academy is designed to support beginners, career changers, and learners who want a clearer route into the mortgage industry.</p>
+          </div>
+          <div class="faq-item">
+            <h3 style="font-size:1.15rem;">Do you only help with CeMAP?</h3>
+            <p class="muted" style="margin-top:12px;">No. CeMAP is the starting point, but Rockgate Academy also helps learners understand what comes after qualification and how to think about their pathway into the industry.</p>
+          </div>
+          <div class="faq-item">
+            <h3 style="font-size:1.15rem;">Is this suitable if I feel overwhelmed or unsure where to begin?</h3>
+            <p class="muted" style="margin-top:12px;">Yes. The whole approach is designed to make the journey clearer, simpler, and more supportive for people who need structure and confidence.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="enquire" class="section cta-section">
+      <div class="container cta-grid">
+        <div>
+          <div class="small-title" style="color:#CBD5E1;">Take the Next Step</div>
+          <h2 style="color:#FFFFFF;">Ready to start your journey?</h2>
+          <p class="lead">
+            Whether you are starting from scratch, changing career, or looking for a clearer route into the mortgage industry, Rockgate Academy is here to help you move forward with confidence.
+          </p>
+          <p style="font-size:1.15rem; font-weight:700; color:#FFFFFF; margin-top:16px;">Start with CeMAP. Build beyond it.</p>
+        </div>
+        <div class="form-card">
+          <h3 style="color:#FFFFFF;">Enquire About Rockgate Academy</h3>
+          <form action="#" method="post">
+            <input class="field" type="text" name="name" placeholder="Your name" />
+            <input class="field" type="email" name="email" placeholder="Email address" />
+            <input class="field" type="tel" name="phone" placeholder="Phone number" />
+            <textarea class="field" name="message" rows="5" placeholder="Tell us which programme you are interested in and where you are in your journey"></textarea>
+            <button class="btn btn-primary" type="submit" style="width:100%; background:#FFFFFF; color:#1E2A38;">Submit Enquiry</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-main footer-grid">
+      <div>
+        <h3 style="font-size:1.2rem;">Rockgate Academy</h3>
+        <p class="muted" style="max-width:420px; margin-top:12px;">
+          CeMAP training and practical industry guidance for learners who want a clearer, more confident route into the mortgage profession.
+        </p>
+      </div>
+      <div>
+        <div class="small-title">Navigation</div>
+        <ul class="clean">
+          <li>Home</li>
+          <li>Our Story</li>
+          <li>Programmes</li>
+          <li>FAQs</li>
+          <li>Contact</li>
+        </ul>
+      </div>
+      <div>
+        <div class="small-title">Contact</div>
+        <ul class="clean">
+          <li>Email: hello@rockgateacademy.co.uk (to be activated before launch)</li>
+          <li>Phone: To be added</li>
+          <li>WhatsApp: To be added</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>© 2026 Rockgate Academy. All rights reserved.</p>
+        <p>The information on this website is provided for general training and educational purposes only.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('mobileToggle');
+    const menu = document.getElementById('mobileMenu');
+
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('open');
+      toggle.textContent = menu.classList.contains('open') ? '✕' : '☰';
+    });
+
+    menu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.textContent = '☰';
+      });
+    });
+  </script>
+</body>
+</html>
