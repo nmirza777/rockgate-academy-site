@@ -4,452 +4,633 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rockgate Academy | From beginner to mortgage professional</title>
-  <meta name="description" content="Rockgate Academy offers CeMAP training and real-world industry guidance for people who want more than just exam prep." />
+  <meta name="description" content="Rockgate Academy offers CeMAP training and practical industry guidance for people who want more than just exam prep." />
+  <meta name="theme-color" content="#1E2A38" />
   <style>
-    :root {
-      --primary: #1E2A38;
-      --secondary: #334155;
-      --accent: #C7A76C;
-      --bg-soft: #F8F6F1;
-      --white: #FFFFFF;
-      --border: #E5E7EB;
-      --text: #475569;
-      --shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
-      --radius-xl: 24px;
-      --radius-lg: 18px;
-      --max: 1200px;
+    :root{
+      --primary:#1E2A38;
+      --secondary:#334155;
+      --accent:#C7A76C;
+      --whatsapp:#25D366;
+      --bg:#FFFFFF;
+      --bg-soft:#F8F6F1;
+      --bg-alt:#F8FAFC;
+      --text:#475569;
+      --text-dark:#0F172A;
+      --border:#E5E7EB;
+      --white:#FFFFFF;
+      --success:#166534;
+      --success-bg:#ECFDF5;
+      --shadow:0 12px 28px rgba(15,23,42,.08);
+      --radius-xl:24px;
+      --radius-lg:18px;
+      --radius-md:14px;
+      --max:1200px;
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: Inter, Arial, Helvetica, sans-serif;
-      color: var(--primary);
-      background: var(--white);
-      line-height: 1.6;
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter, Arial, Helvetica, sans-serif;
+      color:var(--text-dark);
+      background:var(--bg);
+      line-height:1.6;
     }
 
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    button,input,textarea{font:inherit}
 
-    .container {
-      width: min(var(--max), calc(100% - 32px));
-      margin: 0 auto;
+    .container{
+      width:min(var(--max), calc(100% - 32px));
+      margin:0 auto;
     }
 
-    .section { padding: 80px 0; }
-    .section-soft { background: var(--bg-soft); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(255,255,255,0.94);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
+    .section{padding:80px 0}
+    .section-soft{
+      background:var(--bg-soft);
+      border-top:1px solid var(--border);
+      border-bottom:1px solid var(--border);
     }
 
-    .topbar-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      padding: 16px 0;
+    .top-contact{
+      background:var(--primary);
+      color:#E2E8F0;
+      font-size:.93rem;
     }
 
-    .brand-title { font-size: 1.15rem; font-weight: 800; margin: 0; }
-    .brand-subtitle { margin: 2px 0 0; font-size: 0.78rem; color: var(--text); }
-
-    .nav {
-      display: flex;
-      gap: 24px;
-      align-items: center;
+    .top-contact-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:10px 0;
+      flex-wrap:wrap;
     }
 
-    .nav a {
-      font-size: 0.95rem;
-      color: var(--text);
-      font-weight: 600;
+    .contact-links,
+    .top-utility{
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+      align-items:center;
     }
 
-    .nav a:hover { color: var(--primary); }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 22px;
-      border-radius: 18px;
-      border: 1px solid transparent;
-      font-weight: 700;
-      font-size: 0.95rem;
-      cursor: pointer;
-      transition: 0.2s ease;
+    .contact-links a,
+    .top-utility a{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      color:#E2E8F0;
+      font-weight:600;
     }
 
-    .btn-primary {
-      background: var(--primary);
-      color: var(--white);
+    .top-utility .whatsapp-link{
+      color:#FFFFFF;
     }
 
-    .btn-primary:hover { opacity: 0.92; }
-
-    .btn-outline {
-      background: var(--white);
-      color: var(--secondary);
-      border-color: #CBD5E1;
+    .site-header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(255,255,255,.94);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--border);
     }
 
-    .btn-outline:hover { background: #F8FAFC; }
-
-    .mobile-toggle {
-      display: none;
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 10px 12px;
-      font-size: 1rem;
-      cursor: pointer;
+    .header-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+      padding:14px 0;
     }
 
-    .mobile-menu {
-      display: none;
-      border-top: 1px solid var(--border);
-      background: var(--white);
-      padding: 16px 0 20px;
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      min-width:0;
     }
 
-    .mobile-menu.open { display: block; }
-    .mobile-menu a {
-      display: block;
-      padding: 14px 16px;
-      border-radius: 16px;
-      color: var(--secondary);
-      font-weight: 600;
-      margin-bottom: 8px;
+    .brand-logo{
+      height:60px;
+      width:auto;
+      border-radius:14px;
+      object-fit:contain;
+      background:#fff;
     }
 
-    .mobile-menu a:hover { background: #F8FAFC; }
+    .brand-title{
+      margin:0;
+      font-size:1.1rem;
+      font-weight:800;
+      color:var(--primary);
+    }
 
-    .hero {
-      background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f8f6f1 100%);
-      border-bottom: 1px solid var(--border);
+    .brand-subtitle{
+      margin:2px 0 0;
+      font-size:.82rem;
+      color:var(--text);
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      gap:24px;
+    }
+
+    .nav a{
+      color:var(--text);
+      font-size:.96rem;
+      font-weight:700;
+    }
+
+    .nav a:hover{color:var(--primary)}
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      min-height:48px;
+      padding:13px 22px;
+      border-radius:18px;
+      border:1px solid transparent;
+      font-weight:800;
+      font-size:.96rem;
+      cursor:pointer;
+      transition:.2s ease;
+      text-align:center;
+    }
+
+    .btn:hover{transform:translateY(-1px)}
+    .btn-primary{
+      background:var(--primary);
+      color:var(--white);
+      box-shadow:var(--shadow);
+    }
+    .btn-primary:hover{opacity:.95}
+    .btn-outline{
+      background:var(--white);
+      color:var(--secondary);
+      border-color:#CBD5E1;
+    }
+    .btn-whatsapp{
+      background:var(--whatsapp);
+      color:var(--white);
+    }
+
+    .desktop-cta{
+      display:inline-flex;
+    }
+
+    .mobile-toggle{
+      display:none;
+      border:1px solid var(--border);
+      background:#fff;
+      border-radius:16px;
+      padding:10px 12px;
+      cursor:pointer;
+      font-size:1rem;
+    }
+
+    .mobile-menu{
+      display:none;
+      border-top:1px solid var(--border);
+      background:#fff;
+      padding:14px 0 20px;
+    }
+
+    .mobile-menu.open{display:block}
+    .mobile-menu a{
+      display:block;
+      padding:14px 16px;
+      border-radius:16px;
+      font-weight:700;
+      color:var(--secondary);
+      margin-bottom:8px;
+    }
+
+    .mobile-menu a:hover{background:var(--bg-alt)}
+
+    .eyebrow{
+      display:inline-flex;
+      padding:8px 14px;
+      border-radius:999px;
+      background:#fff;
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
+      font-size:.88rem;
+      font-weight:700;
+      color:var(--secondary);
+    }
+
+    h1,h2,h3,h4,p{margin-top:0}
+    h1{
+      font-size:clamp(2.5rem,5vw,4.35rem);
+      line-height:1.06;
+      letter-spacing:-.03em;
+      margin:18px 0 0;
+    }
+    h2{
+      font-size:clamp(2rem,3vw,3rem);
+      line-height:1.12;
+      letter-spacing:-.02em;
+      margin-bottom:0;
+    }
+    h3{
+      font-size:1.4rem;
+      line-height:1.25;
+      margin-bottom:0;
+    }
+    .lead{
+      font-size:1.08rem;
+      color:var(--text);
+      margin-top:22px;
+      max-width:760px;
+    }
+    .sublead{
+      font-size:1.02rem;
+      color:var(--text);
+    }
+    .small-title{
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      font-size:.78rem;
+      font-weight:800;
+      color:#64748B;
+      margin-bottom:10px;
+    }
+    .muted{color:var(--text)}
+
+    .hero{
+      background:linear-gradient(135deg, #F8FAFC 0%, #FFFFFF 52%, #F8F6F1 100%);
+      border-bottom:1px solid var(--border);
     }
 
     .hero-grid,
     .two-col,
-    .founder-grid,
     .trust-grid,
     .cta-grid,
-    .footer-grid {
-      display: grid;
-      gap: 32px;
+    .footer-grid{
+      display:grid;
+      gap:32px;
+    }
+    .hero-grid{grid-template-columns:1.15fr .85fr; align-items:center}
+    .two-col{grid-template-columns:1.1fr .9fr}
+    .trust-grid{grid-template-columns:1.05fr .95fr}
+    .cta-grid{grid-template-columns:1.05fr .95fr; align-items:start}
+    .footer-grid{grid-template-columns:1.2fr .8fr .9fr}
+
+    .grid-2,.grid-3,.grid-4{
+      display:grid;
+      gap:20px;
+    }
+    .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+
+    .card,
+    .card-soft,
+    .pricing-card,
+    .faq-item{
+      border:1px solid var(--border);
+      border-radius:var(--radius-xl);
+      box-shadow:var(--shadow);
     }
 
-    .hero-grid { grid-template-columns: 1.15fr 0.85fr; align-items: center; }
-    .two-col { grid-template-columns: 1.1fr 0.9fr; }
-    .founder-grid { grid-template-columns: 0.8fr 1.2fr; align-items: center; }
-    .trust-grid { grid-template-columns: 1.1fr 0.9fr; }
-    .cta-grid { grid-template-columns: 1.05fr 0.95fr; align-items: start; }
-    .footer-grid { grid-template-columns: 1.2fr 0.8fr 0.8fr; }
-
-    .eyebrow {
-      display: inline-flex;
-      padding: 8px 14px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: var(--white);
-      box-shadow: var(--shadow);
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: var(--secondary);
+    .card{
+      background:#fff;
+      padding:24px;
     }
 
-    h1, h2, h3, h4, p { margin-top: 0; }
-    h1 {
-      font-size: clamp(2.4rem, 5vw, 4.2rem);
-      line-height: 1.08;
-      margin: 18px 0 0;
-      letter-spacing: -0.03em;
+    .card-soft{
+      background:var(--bg-soft);
+      padding:28px;
     }
 
-    h2 {
-      font-size: clamp(2rem, 3vw, 3rem);
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-      margin-bottom: 0;
+    .tagline{
+      margin-top:16px;
+      display:inline-flex;
+      padding:10px 16px;
+      border-radius:999px;
+      background:#fff;
+      box-shadow:var(--shadow);
+      color:var(--text);
+      font-weight:700;
+      font-size:.95rem;
     }
 
-    h3 { font-size: 1.45rem; line-height: 1.25; margin-bottom: 0; }
-    .lead {
-      font-size: 1.12rem;
-      color: var(--text);
-      margin-top: 22px;
-      max-width: 720px;
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-top:28px;
     }
 
-    .sublead { font-size: 1.03rem; color: var(--text); }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 28px;
+    .contact-strip{
+      margin-top:16px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
     }
 
-    .tagline {
-      margin-top: 16px;
-      display: inline-flex;
-      padding: 10px 16px;
-      border-radius: 999px;
-      background: var(--white);
-      box-shadow: var(--shadow);
-      color: var(--text);
-      font-weight: 600;
-      font-size: 0.95rem;
+    .contact-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:11px 14px;
+      border-radius:999px;
+      background:#fff;
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
+      font-size:.94rem;
+      font-weight:700;
+      color:var(--secondary);
     }
 
-    .grid-2, .grid-3, .grid-4 {
-      display: grid;
-      gap: 20px;
+    ul.clean{
+      list-style:none;
+      padding:0;
+      margin:18px 0 0;
     }
 
-    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-
-    .card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow);
-      padding: 24px;
+    ul.clean li{
+      margin-bottom:12px;
+      color:var(--text);
     }
 
-    .card-soft {
-      background: var(--bg-soft);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow);
-      padding: 28px;
+    .program-badge{
+      display:inline-flex;
+      margin-top:18px;
+      padding:10px 16px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:var(--bg-soft);
+      color:var(--text);
+      font-size:.92rem;
+      font-weight:700;
+      box-shadow:var(--shadow);
     }
 
-    .small-title {
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: #64748B;
-      margin-bottom: 10px;
+    .pricing-card{
+      position:relative;
+      background:#fff;
+      padding:32px 28px;
+      transition:transform .2s ease, box-shadow .2s ease;
     }
 
-    .muted { color: var(--text); }
-
-    ul.clean {
-      list-style: none;
-      padding: 0;
-      margin: 18px 0 0;
+    .pricing-card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 18px 30px rgba(15,23,42,.12);
     }
 
-    ul.clean li {
-      margin-bottom: 12px;
-      color: var(--text);
-    }
-
-    .program-badge {
-      display: inline-flex;
-      margin-top: 18px;
-      border: 1px solid var(--border);
-      background: var(--bg-soft);
-      color: var(--text);
-      padding: 10px 16px;
-      border-radius: 999px;
-      font-size: 0.92rem;
-      box-shadow: var(--shadow);
-    }
-
-    .pricing-card {
-      position: relative;
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 30px;
-      box-shadow: var(--shadow);
-      padding: 32px 28px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .pricing-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 18px 30px rgba(15, 23, 42, 0.12);
-    }
-
-    .pricing-card.featured {
-      background: var(--primary);
-      color: var(--white);
-      border: 2px solid var(--primary);
-      box-shadow: 0 18px 30px rgba(15, 23, 42, 0.22);
+    .pricing-card.featured{
+      background:var(--primary);
+      border-color:var(--primary);
+      color:#fff;
+      box-shadow:0 18px 30px rgba(15,23,42,.2);
     }
 
     .featured .muted,
+    .featured .sublead,
     .featured ul.clean li,
     .featured .price-label,
-    .featured .package-note { color: #E2E8F0; }
-
-    .best-value {
-      position: absolute;
-      top: -14px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--accent);
-      color: var(--primary);
-      font-size: 0.74rem;
-      font-weight: 800;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      padding: 8px 14px;
-      border-radius: 999px;
+    .featured .package-note{
+      color:#E2E8F0;
     }
 
-    .price-label {
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: #64748B;
-      margin-top: 12px;
+    .best-value{
+      position:absolute;
+      top:-14px;
+      left:50%;
+      transform:translateX(-50%);
+      padding:8px 14px;
+      border-radius:999px;
+      background:var(--accent);
+      color:var(--primary);
+      font-size:.74rem;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.14em;
     }
 
-    .price {
-      font-size: 2.5rem;
-      font-weight: 800;
-      line-height: 1.1;
-      margin: 6px 0 0;
+    .price-label{
+      margin-top:12px;
+      color:#64748B;
+      font-size:.85rem;
+      font-weight:800;
     }
 
-    .package-note {
-      margin-top: 14px;
-      font-size: 0.82rem;
-      text-align: center;
-      color: #64748B;
+    .price{
+      margin:6px 0 0;
+      font-size:2.5rem;
+      font-weight:900;
+      line-height:1.1;
     }
 
-    .featured .btn-primary {
-      background: var(--white);
-      color: var(--primary);
+    .package-note{
+      margin-top:14px;
+      font-size:.82rem;
+      text-align:center;
+      color:#64748B;
     }
 
-    .photo-placeholder {
-      min-height: 320px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px dashed #CBD5E1;
-      border-radius: 24px;
-      background: var(--white);
-      text-align: center;
-      color: #64748B;
-      padding: 20px;
+    .featured .btn-primary{
+      background:#fff;
+      color:var(--primary);
     }
 
-    .faq-item {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow);
-      padding: 24px;
-      margin-bottom: 16px;
+    .founder-card{
+      min-height:320px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border:1px dashed #CBD5E1;
+      border-radius:24px;
+      background:#fff;
+      color:#64748B;
+      text-align:center;
+      padding:20px;
     }
 
-    .cta-section {
-      background: var(--primary);
-      color: var(--white);
-      border-top: 1px solid rgba(255,255,255,0.08);
+    .faq-item{
+      background:#fff;
+      padding:24px;
+      margin-bottom:16px;
+    }
+
+    .cta-section{
+      background:var(--primary);
+      color:#fff;
+      border-top:1px solid rgba(255,255,255,.08);
     }
 
     .cta-section .lead,
     .cta-section .sublead,
     .cta-section .muted,
-    .cta-section p { color: #CBD5E1; }
-
-    .form-card {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 28px;
-      padding: 28px;
-      backdrop-filter: blur(10px);
+    .cta-section p{
+      color:#CBD5E1;
     }
 
-    .field {
-      width: 100%;
-      padding: 14px 16px;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.16);
-      background: rgba(255,255,255,0.08);
-      color: var(--white);
-      font-size: 0.96rem;
-      margin-bottom: 14px;
-      outline: none;
+    .form-card{
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:28px;
+      padding:28px;
+      backdrop-filter:blur(10px);
     }
 
-    .field::placeholder { color: #CBD5E1; }
-
-    footer {
-      border-top: 1px solid var(--border);
-      background: var(--white);
+    .field,
+    .field-textarea{
+      width:100%;
+      padding:14px 16px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(255,255,255,.08);
+      color:#fff;
+      margin-bottom:14px;
+      outline:none;
     }
 
-    .footer-main {
-      padding: 48px 0;
+    .field::placeholder,
+    .field-textarea::placeholder{
+      color:#CBD5E1;
     }
 
-    .footer-bottom {
-      border-top: 1px solid var(--border);
-      color: #64748B;
-      font-size: 0.92rem;
-      padding: 22px 0;
+    .form-note{
+      margin:0 0 16px;
+      font-size:.92rem;
+      color:#E2E8F0;
     }
 
-    .footer-bottom-inner {
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      flex-wrap: wrap;
+    .safe-box{
+      margin-top:18px;
+      padding:14px 16px;
+      border-radius:16px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+      font-size:.92rem;
+      color:#E2E8F0;
     }
 
-    @media (max-width: 992px) {
+    .success-message{
+      display:none;
+      margin-top:16px;
+      padding:14px 16px;
+      border-radius:16px;
+      background:var(--success-bg);
+      color:var(--success);
+      font-weight:700;
+    }
+
+    footer{
+      background:#fff;
+      border-top:1px solid var(--border);
+    }
+
+    .footer-main{padding:48px 0}
+    .footer-bottom{
+      border-top:1px solid var(--border);
+      padding:22px 0;
+      color:#64748B;
+      font-size:.92rem;
+    }
+    .footer-bottom-inner{
+      display:flex;
+      justify-content:space-between;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .footer-nav a{
+      color:var(--text);
+    }
+
+    .footer-nav li{
+      margin-bottom:10px;
+    }
+
+    .footer-brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-bottom:14px;
+    }
+
+    .footer-logo{
+      height:46px;
+      width:auto;
+      border-radius:12px;
+      object-fit:contain;
+    }
+
+    @media (max-width: 992px){
       .hero-grid,
       .two-col,
-      .founder-grid,
       .trust-grid,
       .cta-grid,
       .footer-grid,
       .grid-4,
       .grid-3,
-      .grid-2 {
-        grid-template-columns: 1fr;
+      .grid-2{
+        grid-template-columns:1fr;
+      }
+
+      .nav,
+      .desktop-cta{
+        display:none;
+      }
+
+      .mobile-toggle{
+        display:inline-flex;
       }
     }
 
-    @media (max-width: 768px) {
-      .section { padding: 64px 0; }
-      .nav, .desktop-cta { display: none; }
-      .mobile-toggle { display: inline-flex; }
-      .topbar-inner { padding: 14px 0; }
-      h1 { font-size: 2.5rem; }
-      .hero-actions { flex-direction: column; }
-      .hero-actions .btn { width: 100%; }
-      .container { width: min(var(--max), calc(100% - 24px)); }
+    @media (max-width: 768px){
+      .container{width:min(var(--max), calc(100% - 24px))}
+      .section{padding:64px 0}
+      .header-inner{padding:12px 0}
+      .brand-logo{height:52px}
+      h1{font-size:2.55rem}
+      .hero-actions{
+        flex-direction:column;
+      }
+      .hero-actions .btn{
+        width:100%;
+      }
+      .top-contact-inner{
+        align-items:flex-start;
+      }
     }
   </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="container topbar-inner">
-      <div>
-        <p class="brand-title">Rockgate Academy</p>
-        <p class="brand-subtitle">From beginner to mortgage professional</p>
+  <div class="top-contact" aria-label="Top contact information">
+    <div class="container top-contact-inner">
+      <div class="contact-links">
+        <a href="mailto:hello@rockgateacademy.co.uk">✉️ hello@rockgateacademy.co.uk</a>
+        <a href="tel:+447424707984">📞 +44 7424 707984</a>
       </div>
+      <div class="top-utility">
+        <a class="whatsapp-link" href="https://wa.me/447424707984?text=Hello%20Rockgate%20Academy%2C%20I%27d%20like%20to%20find%20out%20more%20about%20your%20programmes." target="_blank" rel="noopener noreferrer">💬 WhatsApp us</a>
+      </div>
+    </div>
+  </div>
 
-      <nav class="nav">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Rockgate Academy home">
+        <img class="brand-logo" src="rockgate-academy-logo.png" alt="Rockgate Academy logo" />
+        <div>
+          <p class="brand-title">Rockgate Academy</p>
+          <p class="brand-subtitle">From beginner to mortgage professional</p>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Primary navigation">
         <a href="#top">Home</a>
         <a href="#story">Our Story</a>
         <a href="#packages">Programmes</a>
@@ -459,7 +640,7 @@
 
       <a class="btn btn-primary desktop-cta" href="#enquire">Enquire Now</a>
 
-      <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">☰</button>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">☰</button>
     </div>
 
     <div class="mobile-menu" id="mobileMenu">
@@ -478,22 +659,26 @@
     <section class="hero section">
       <div class="container hero-grid">
         <div>
-          <span class="eyebrow">Rockgate Academy • From beginner to mortgage professional</span>
+          <span class="eyebrow">Rockgate Academy • Start with CeMAP. Build beyond it.</span>
           <h1>From beginner to mortgage professional.</h1>
-          <div class="tagline">Start with CeMAP. Build beyond it.</div>
+          <div class="tagline">Clear training. Real guidance. A better route forward.</div>
+
           <p class="lead">
             Rockgate Academy offers CeMAP training and real-world industry guidance for people who want more than just exam prep. We help learners build knowledge, confidence, and direction — from qualification through to understanding the wider journey into the mortgage industry.
           </p>
+
           <div class="hero-actions">
             <a class="btn btn-primary" href="#packages">Explore Programmes</a>
             <a class="btn btn-outline" href="#story">Our Story</a>
+            <a class="btn btn-whatsapp" href="https://wa.me/447424707984?text=Hello%20Rockgate%20Academy%2C%20I%27m%20interested%20in%20your%20CeMAP%20training." target="_blank" rel="noopener noreferrer">WhatsApp CTA</a>
           </div>
-		  <p style="margin-top:12px; font-size:14px; color: var(--text);">
-			Prefer to chat? 
-			<a href="https://wa.me/447424707984" target="_blank" rel="noopener noreferrer" style="font-weight:700;">
-			Message us on WhatsApp
-			</a>
-			</p>
+
+          <div class="contact-strip" aria-label="Quick contact options">
+            <a class="contact-pill" href="mailto:hello@rockgateacademy.co.uk">Email us</a>
+            <a class="contact-pill" href="tel:+447424707984">Call us</a>
+            <a class="contact-pill" href="https://wa.me/447424707984?text=Hello%20Rockgate%20Academy%2C%20I%27d%20like%20to%20know%20more." target="_blank" rel="noopener noreferrer">Message on WhatsApp</a>
+          </div>
+
           <div class="grid-2" style="margin-top:28px;">
             <div class="card"><p class="muted">Live online CeMAP training with structured weekly support</p></div>
             <div class="card"><p class="muted">Clear guidance for complete beginners and career changers</p></div>
@@ -508,16 +693,19 @@
           <p class="sublead" style="margin-top:16px;">
             Rockgate Academy was created for people who want more than just a course. Many learners can find CeMAP materials, but still feel unsure about where to begin, how the industry works, and what comes after passing. We exist to bridge that gap.
           </p>
+
           <div class="card-soft" style="margin-top:18px;">
             <div class="small-title">Step 1</div>
             <h4>Start with CeMAP</h4>
             <p class="muted" style="margin-top:10px;">Build strong foundations with structured teaching, practical explanations, and a clear study plan.</p>
           </div>
+
           <div class="card-soft" style="margin-top:16px;">
             <div class="small-title">Step 2</div>
             <h4>Understand the Industry</h4>
             <p class="muted" style="margin-top:10px;">Learn what the mortgage profession really looks like beyond the exams, including routes, roles, and progression.</p>
           </div>
+
           <div class="card-soft" style="margin-top:16px;">
             <div class="small-title">Step 3</div>
             <h4>Build Beyond It</h4>
@@ -539,6 +727,7 @@
             For many people, CeMAP is only the beginning. The real challenge is understanding what comes next — the pathways, the choices, the confidence, and the direction needed to move from qualification into a real career. Rockgate Academy was built to make that journey clearer, more practical, and more supportive.
           </p>
         </div>
+
         <div class="card-soft">
           <div class="small-title">Our Mission</div>
           <h3>To help learners build clarity, confidence, and career direction</h3>
@@ -575,7 +764,8 @@
 
         <div class="program-badge">Prelaunch pricing now available for the founding cohort</div>
 
-        <div class="grid-3" style="margin-top:28px;">
+        <p class="muted" style="margin-top:16px; font-size:0.9rem; font-weight:500;">Secure online payments powered by Monzo.</p>
+		<div class="grid-3" style="margin-top:28px;">
           <div class="pricing-card">
             <h3>CeMAP Core</h3>
             <div class="price-label">Launch Price</div>
@@ -590,8 +780,8 @@
               <li>• Exam strategy guidance</li>
             </ul>
             <div style="margin-top:26px;">
-              <a class="btn btn-primary" href="#enquire" style="width:100%;">Register Interest</a>
-              <p class="package-note">Ideal if you want focused CeMAP support and structure</p>
+              <a class="btn btn-primary" href="https://monzo.com/pay/r/rockgate-academy-ltd_nSNyOVyDRna3LT" target="_blank" rel="noopener noreferrer" style="width:100%;">Secure Your Place</a>
+              <p class="package-note">Secure your CeMAP Core place online, or enquire first with any questions</p>
             </div>
           </div>
 
@@ -600,7 +790,7 @@
             <h3 style="margin-top:12px;">Complete Pathway</h3>
             <div class="price-label">Launch Price</div>
             <div class="price">£695</div>
-            <p class="sublead" style="margin-top:16px; color:#E2E8F0;">The full Rockgate Academy journey — from qualification to career direction.</p>
+            <p class="sublead" style="margin-top:16px;">The full Rockgate Academy journey — from qualification to career direction.</p>
             <ul class="clean">
               <li>• Everything in CeMAP Core</li>
               <li>• Everything in Beyond CeMAP</li>
@@ -608,8 +798,8 @@
               <li>• The strongest option for learners who want the full journey</li>
             </ul>
             <div style="margin-top:26px;">
-              <a class="btn btn-primary" href="#enquire" style="width:100%;">Join Founding Cohort Interest List</a>
-              <p class="package-note">Recommended for learners who want qualification and direction together</p>
+			  <a class="btn btn-primary" href="https://monzo.com/pay/r/rockgate-academy-ltd_nMdyfZoBulSPOm" target="_blank" rel="noopener noreferrer" style="width:100%;">Secure Your Place</a>
+              <p class="package-note">Secure your Complete Pathway place online, or enquire first with any questions</p>
             </div>
           </div>
 
@@ -627,14 +817,14 @@
               <li>• Action plan for your next steps</li>
             </ul>
             <div style="margin-top:26px;">
-              <a class="btn btn-primary" href="#enquire" style="width:100%;">Register Interest</a>
-              <p class="package-note">Perfect if you already want guidance on what comes next</p>
+              <a class="btn btn-primary" href="https://monzo.com/pay/r/rockgate-academy-ltd_iXW3ZiCNXH54ne" target="_blank" rel="noopener noreferrer" style="width:100%;">Secure Your Place</a>
+              <p class="package-note">Secure your Beyond CeMAP place online, or enquire first with any questions</p>
             </div>
           </div>
         </div>
 
         <div class="card-soft" style="margin-top:30px;">
-          <div class="two-col" style="grid-template-columns: 1fr auto; align-items: center; gap: 22px;">
+          <div class="two-col" style="grid-template-columns:1fr auto; align-items:center; gap:22px;">
             <div>
               <h3>Prelaunch approach</h3>
               <p class="sublead" style="margin-top:10px;">
@@ -664,6 +854,7 @@
             This is not just about helping learners prepare for CeMAP. It is about helping them understand the bigger picture, build confidence, and take meaningful steps towards becoming career-ready professionals.
           </p>
         </div>
+
         <div>
           <div class="card" style="margin-bottom:16px;">
             <div class="small-title">Clarity-led approach</div>
@@ -682,15 +873,16 @@
     </section>
 
     <section class="section">
-      <div class="container founder-grid">
+      <div class="container two-col">
         <div class="card-soft">
-          <div class="photo-placeholder">
+          <div class="founder-card">
             <div>
               <div class="small-title">Founder Image</div>
               <p>Add a professional photo here</p>
             </div>
           </div>
         </div>
+
         <div>
           <div class="small-title">Meet the Founder</div>
           <h2>A more personal and practical approach to learning</h2>
@@ -703,6 +895,7 @@
           <p class="lead" style="font-size:1.03rem;">
             That experience, together with seeing how many aspiring professionals are left with similar questions, played a big part in the creation of Rockgate Academy and the desire to offer a more complete and supportive experience.
           </p>
+
           <div class="card-soft" style="margin-top:20px;">
             <h3 style="font-size:1.2rem;">What learners can expect</h3>
             <ul class="clean">
@@ -720,15 +913,18 @@
       <div class="container">
         <div class="small-title">Frequently Asked Questions</div>
         <h2>Questions learners often ask</h2>
+
         <div style="margin-top:28px;">
           <div class="faq-item">
             <h3 style="font-size:1.15rem;">Is Rockgate Academy only for people already in financial services?</h3>
             <p class="muted" style="margin-top:12px;">No. Rockgate Academy is designed to support beginners, career changers, and learners who want a clearer route into the mortgage industry.</p>
           </div>
+
           <div class="faq-item">
             <h3 style="font-size:1.15rem;">Do you only help with CeMAP?</h3>
             <p class="muted" style="margin-top:12px;">No. CeMAP is the starting point, but Rockgate Academy also helps learners understand what comes after qualification and how to think about their pathway into the industry.</p>
           </div>
+
           <div class="faq-item">
             <h3 style="font-size:1.15rem;">Is this suitable if I feel overwhelmed or unsure where to begin?</h3>
             <p class="muted" style="margin-top:12px;">Yes. The whole approach is designed to make the journey clearer, simpler, and more supportive for people who need structure and confidence.</p>
@@ -745,17 +941,33 @@
           <p class="lead">
             Whether you are starting from scratch, changing career, or looking for a clearer route into the mortgage industry, Rockgate Academy is here to help you move forward with confidence.
           </p>
-          <p style="font-size:1.15rem; font-weight:700; color:#FFFFFF; margin-top:16px;">Start with CeMAP. Build beyond it.</p>
+          <p style="font-size:1.15rem; font-weight:800; color:#FFFFFF; margin-top:16px;">Start with CeMAP. Build beyond it.</p>
+
+          <div class="safe-box">
+            Safe enquiry note: this form does not store data in the page itself. When submitted, it prepares an email on the visitor’s device so they can review the message before sending.
+          </div>
         </div>
+
         <div class="form-card">
           <h3 style="color:#FFFFFF;">Enquire About Rockgate Academy</h3>
-          <form action="#" method="post">
-            <input class="field" type="text" name="name" placeholder="Your name" />
-            <input class="field" type="email" name="email" placeholder="Email address" />
-            <input class="field" type="tel" name="phone" placeholder="Phone number" />
-            <textarea class="field" name="message" rows="5" placeholder="Tell us which programme you are interested in and where you are in your journey"></textarea>
+          <p class="form-note">Tell us which programme interests you and where you are in your journey.</p>
+
+          <form id="enquiryForm">
+            <input class="field" type="text" id="name" name="name" placeholder="Your name" required />
+            <input class="field" type="email" id="email" name="email" placeholder="Email address" required />
+            <input class="field" type="tel" id="phone" name="phone" placeholder="Phone number" />
+            <textarea class="field-textarea" id="message" name="message" rows="5" placeholder="Tell us which programme you are interested in and where you are in your journey" required></textarea>
+
             <button class="btn btn-primary" type="submit" style="width:100%; background:#FFFFFF; color:#1E2A38;">Submit Enquiry</button>
           </form>
+
+          <div id="successMessage" class="success-message" role="status" aria-live="polite">
+            Your email app should open now with your enquiry ready to review and send.
+          </div>
+
+          <div class="safe-box" style="margin-top:16px;">
+            Prefer a quicker conversation? <a href="https://wa.me/447424707984?text=Hello%20Rockgate%20Academy%2C%20I%27d%20like%20to%20ask%20about%20your%20programmes." target="_blank" rel="noopener noreferrer" style="color:#FFFFFF; font-weight:800; text-decoration:underline;">Message us on WhatsApp</a>.
+          </div>
         </div>
       </div>
     </section>
@@ -764,84 +976,108 @@
   <footer>
     <div class="container footer-main footer-grid">
       <div>
-        <h3 style="font-size:1.2rem;">Rockgate Academy</h3>
-        <p class="muted" style="max-width:420px; margin-top:12px;">
+        <div class="footer-brand">
+          <img class="footer-logo" src="rockgate-academy-logo.png" alt="Rockgate Academy logo" />
+          <div>
+            <h3 style="font-size:1.15rem; margin:0;">Rockgate Academy Ltd</h3>
+            <p class="muted" style="margin:4px 0 0;">From beginner to mortgage professional</p>
+          </div>
+        </div>
+        <p class="muted" style="max-width:430px; margin-top:12px;">
           CeMAP training and practical industry guidance for learners who want a clearer, more confident route into the mortgage profession.
         </p>
       </div>
+
       <div>
         <div class="small-title">Navigation</div>
-        <ul class="clean">
-          <li>Home</li>
-          <li>Our Story</li>
-          <li>Programmes</li>
-          <li>FAQs</li>
-          <li>Contact</li>
+        <ul class="clean footer-nav">
+          <li><a href="#top">Home</a></li>
+          <li><a href="#story">Our Story</a></li>
+          <li><a href="#packages">Programmes</a></li>
+          <li><a href="#faqs">FAQs</a></li>
+          <li><a href="#enquire">Enquire</a></li>
         </ul>
       </div>
-      <div>	
+
+      <div>
         <div class="small-title">Contact</div>
         <ul class="clean">
           <li>Email: <a href="mailto:hello@rockgateacademy.co.uk">hello@rockgateacademy.co.uk</a></li>
           <li>Phone: <a href="tel:+447424707984">+44 7424 707984</a></li>
-          <li>WhatsApp: <a href="https://wa.me/447424707984" target="_blank" rel="noopener noreferrer">+44 7424 707984</a></li>
+          <li>WhatsApp: <a href="https://wa.me/447424707984?text=Hello%20Rockgate%20Academy%2C%20I%27d%20like%20to%20know%20more." target="_blank" rel="noopener noreferrer">+44 7424 707984</a></li>
         </ul>
       </div>
     </div>
+
     <div class="footer-bottom">
       <div class="container footer-bottom-inner">
-        <p>© 2026 Rockgate Academy. All rights reserved.</p>
+        <p>© 2026 Rockgate Academy Ltd. All rights reserved.</p>
         <p>The information on this website is provided for general training and educational purposes only.</p>
       </div>
     </div>
   </footer>
 
+  <a
+    href="https://wa.me/447424707984?text=Hello%20Rockgate%20Academy%2C%20I%27m%20interested%20in%20your%20programmes."
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Chat with Rockgate Academy on WhatsApp"
+    style="position:fixed; right:20px; bottom:20px; width:60px; height:60px; border-radius:50%; background:#25D366; display:flex; align-items:center; justify-content:center; box-shadow:0 10px 25px rgba(0,0,0,.2); z-index:2000;"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="30" height="30" fill="white" aria-hidden="true">
+      <path d="M19.11 17.23c-.27-.14-1.58-.78-1.82-.87-.24-.09-.42-.14-.6.14-.18.27-.69.87-.85 1.05-.15.18-.31.2-.58.07-.27-.14-1.13-.42-2.15-1.34-.8-.71-1.34-1.58-1.49-1.85-.15-.27-.02-.41.11-.55.12-.12.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.05-.34-.02-.47-.07-.14-.6-1.44-.82-1.98-.22-.53-.44-.45-.6-.46h-.51c-.18 0-.47.07-.71.34-.24.27-.93.91-.93 2.22 0 1.31.96 2.58 1.09 2.76.14.18 1.88 2.87 4.56 4.02.64.27 1.15.43 1.54.55.65.21 1.25.18 1.72.11.53-.08 1.58-.65 1.8-1.28.22-.64.22-1.18.15-1.28-.07-.11-.24-.18-.51-.31zM16.03 3.2c-7.07 0-12.8 5.72-12.8 12.78 0 2.26.59 4.47 1.72 6.41L3.14 28.8l6.57-1.72a12.8 12.8 0 0 0 6.32 1.61h.01c7.06 0 12.79-5.73 12.79-12.79 0-3.42-1.33-6.63-3.75-9.05A12.72 12.72 0 0 0 16.03 3.2zm0 23.33h-.01a10.57 10.57 0 0 1-5.39-1.48l-.39-.23-3.9 1.02 1.04-3.8-.25-.39a10.55 10.55 0 0 1-1.62-5.64c0-5.83 4.73-10.57 10.55-10.57 2.82 0 5.46 1.1 7.45 3.09a10.48 10.48 0 0 1 3.09 7.46c0 5.82-4.74 10.56-10.57 10.56z"/>
+    </svg>
+  </a>
+
   <script>
     const toggle = document.getElementById('mobileToggle');
     const menu = document.getElementById('mobileMenu');
 
-    toggle.addEventListener('click', () => {
-      menu.classList.toggle('open');
-      toggle.textContent = menu.classList.contains('open') ? '✕' : '☰';
-    });
-
-    menu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        menu.classList.remove('open');
-        toggle.textContent = '☰';
+    if (toggle && menu) {
+      toggle.addEventListener('click', () => {
+        const isOpen = menu.classList.toggle('open');
+        toggle.textContent = isOpen ? '✕' : '☰';
+        toggle.setAttribute('aria-expanded', String(isOpen));
       });
-    });
+
+      menu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          menu.classList.remove('open');
+          toggle.textContent = '☰';
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    const enquiryForm = document.getElementById('enquiryForm');
+    const successMessage = document.getElementById('successMessage');
+
+    if (enquiryForm) {
+      enquiryForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const message = document.getElementById('message').value.trim();
+
+        const subject = encodeURIComponent('Rockgate Academy Enquiry');
+        const body = encodeURIComponent(
+`Name: ${name}
+Email: ${email}
+Phone: ${phone || 'Not provided'}
+
+Enquiry:
+${message}`
+        );
+
+        window.location.href = `mailto:hello@rockgateacademy.co.uk?subject=${subject}&body=${body}`;
+
+        if (successMessage) {
+          successMessage.style.display = 'block';
+        }
+      });
+    }
   </script>
-  <a
-  href="https://wa.me/447424707984"
-  target="_blank"
-  rel="noopener noreferrer"
-  aria-label="Chat with Rockgate Academy on WhatsApp"
-  style="
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: #25D366;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    z-index: 2000;
-  "
->
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 32 32"
-    width="30"
-    height="30"
-    fill="white"
-    aria-hidden="true"
-  >
-    <path d="M19.11 17.23c-.27-.14-1.58-.78-1.82-.87-.24-.09-.42-.14-.6.14-.18.27-.69.87-.85 1.05-.15.18-.31.2-.58.07-.27-.14-1.13-.42-2.15-1.34-.8-.71-1.34-1.58-1.49-1.85-.15-.27-.02-.41.11-.55.12-.12.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.05-.34-.02-.47-.07-.14-.6-1.44-.82-1.98-.22-.53-.44-.45-.6-.46h-.51c-.18 0-.47.07-.71.34-.24.27-.93.91-.93 2.22 0 1.31.96 2.58 1.09 2.76.14.18 1.88 2.87 4.56 4.02.64.27 1.15.43 1.54.55.65.21 1.25.18 1.72.11.53-.08 1.58-.65 1.8-1.28.22-.64.22-1.18.15-1.28-.07-.11-.24-.18-.51-.31zM16.03 3.2c-7.07 0-12.8 5.72-12.8 12.78 0 2.26.59 4.47 1.72 6.41L3.14 28.8l6.57-1.72a12.8 12.8 0 0 0 6.32 1.61h.01c7.06 0 12.79-5.73 12.79-12.79 0-3.42-1.33-6.63-3.75-9.05A12.72 12.72 0 0 0 16.03 3.2zm0 23.33h-.01a10.57 10.57 0 0 1-5.39-1.48l-.39-.23-3.9 1.02 1.04-3.8-.25-.39a10.55 10.55 0 0 1-1.62-5.64c0-5.83 4.73-10.57 10.55-10.57 2.82 0 5.46 1.1 7.45 3.09a10.48 10.48 0 0 1 3.09 7.46c0 5.82-4.74 10.56-10.57 10.56z"/>
-  </svg>
-</a>
 </body>
 </html>
