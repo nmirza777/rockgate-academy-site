@@ -15,7 +15,6 @@ Cloudflare Pages watching this repo. Pushing to `main` deploys automatically.
 | `terms.html` | Terms and conditions (enrolment, cancellation/refunds, IP, liability, complaints) |
 | `naveed-mirza-founder.jpg` | Founder photo, shared with the Rockgate Capital site |
 | `libf-badge.png` | Naveed's personal LIBF Certified Mortgage Adviser badge (Credly) |
-| `rockgate-academy-logo.png`, `naveed-founder.png` | Legacy assets, no longer referenced by any page — safe to delete |
 
 Each page is fully self-contained (styles and script inline) — open any `.html` file
 directly in a browser to preview, no server required for a quick look. `index.html`'s
