@@ -223,6 +223,9 @@
   .steps li{display:flex; gap:12px; font-size:13.6px; align-items:flex-start;}
   .steps .stepnum{font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--gold-deep); border:1px solid var(--line); background:var(--surface); border-radius:50%; width:22px; height:22px; display:flex; align-items:center; justify-content:center; flex:none;}
 
+  .compliance-note{display:flex; gap:9px; align-items:flex-start; margin-top:28px; font-size:12.5px; color:var(--muted); max-width:68ch;}
+  .compliance-note .arch-icon{flex:none; width:15px; height:15px; margin-top:2px; color:var(--gold-deep);}
+
   /* trust features */
   .features{display:grid; grid-template-columns:repeat(3,1fr); gap:32px; margin-top:44px;}
   @media (max-width:860px){ .features{grid-template-columns:1fr;} }
@@ -559,6 +562,10 @@
         <a class="btn btn-gold btn-block" href="#enquire">Request a Tailored Quote</a>
       </div>
     </div>
+    <p class="compliance-note">
+      <svg class="arch-icon"><use href="#archMark"/></svg>
+      This service supports your understanding and preparation of a case. It does not replace, override, or substitute your firm's CAS (Certificate/Competent Adviser Status) sign-off process — every case must still be reviewed and confirmed by your own CAS supervisor before submission.
+    </p>
   </div>
 </section>
 
