@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms and Conditions | Rockgate Academy</title>
+<meta name="description" content="Terms and conditions for Rockgate Academy programmes and case support.">
+<meta name="theme-color" content="#0F241F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,440;0,9..144,560;0,9..144,650&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+  :root{
+    --bg:#F5F1E7; --surface:#FFFFFF; --surface-2:#FBF7EF;
+    --ink:#152420; --ink-strong:#0F241F; --muted:#5C6B62; --line:#E3D9C6;
+    --gold:#B98A46; --gold-deep:#8C6435; --gold-tint:#F1E3CB;
+    --band-bg:#0F241F; --band-ink:#F5F1E7; --band-muted:#B9C4BF; --band-line:rgba(245,241,231,0.16);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0E1512; --surface:#16211C; --surface-2:#131D19;
+      --ink:#ECE7DA; --ink-strong:#F6F1E6; --muted:#9BA89E; --line:#28352D;
+      --gold:#D3A566; --gold-deep:#E4BC85; --gold-tint:#26221A;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0E1512; --surface:#16211C; --surface-2:#131D19;
+    --ink:#ECE7DA; --ink-strong:#F6F1E6; --muted:#9BA89E; --line:#28352D;
+    --gold:#D3A566; --gold-deep:#E4BC85; --gold-tint:#26221A;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:"Archivo",Arial,Helvetica,sans-serif; line-height:1.65;}
+  h1,h2,h3{font-family:"Fraunces",Georgia,serif; margin:0; color:var(--ink-strong); text-wrap:balance;}
+  a{color:inherit;}
+  .wrap{max-width:1080px; margin-inline:auto; padding-inline:clamp(20px,5vw,56px);}
+  .arch-icon{width:1em; height:1.06em; display:inline-block; vertical-align:-0.12em; fill:currentColor;}
+
+  header.site{background:var(--band-bg); color:var(--band-ink); padding-block:20px;}
+  header.site .wrap{display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap;}
+  .brand{display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--band-ink);}
+  .brand .mark{width:32px; height:34px; border-radius:7px; background:rgba(245,241,231,0.1); display:flex; align-items:center; justify-content:center; color:var(--gold); flex:none;}
+  .brand .mark .arch-icon{width:16px; height:17px;}
+  .brand .name{font-family:"Fraunces",serif; font-weight:560; font-size:1.02rem;}
+  .back-link{color:var(--band-muted); font-size:13.5px; text-decoration:none;}
+  .back-link:hover{color:var(--gold);}
+
+  .hero{padding-block:56px 40px; border-bottom:1px solid var(--line);}
+  .eyebrow{font-family:"IBM Plex Mono",monospace; font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold-deep); font-weight:600;}
+  .hero h1{font-size:clamp(2rem,4.5vw,2.8rem); margin-top:12px;}
+  .hero p{margin-top:14px; max-width:70ch; color:var(--muted); font-size:15px;}
+
+  .draft-banner{background:var(--gold-tint); border:1px solid var(--gold); border-radius:8px; padding:16px 20px; margin-top:22px; font-size:13.5px; color:#5E4527; max-width:70ch;}
+  .draft-banner strong{display:block; margin-bottom:4px; color:#4A3620;}
+
+  .policy{padding-block:48px 90px;}
+  .policy-grid{display:grid; grid-template-columns:220px minmax(0,1fr); gap:48px; align-items:start;}
+  @media (max-width:820px){ .policy-grid{grid-template-columns:1fr; gap:28px;} }
+  .contents{position:sticky; top:20px; background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:20px;}
+  @media (max-width:820px){ .contents{position:static;} }
+  .contents strong{display:block; margin-bottom:10px; font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--gold-deep);}
+  .contents a{display:block; padding:6px 0; color:var(--muted); font-size:13px; text-decoration:none;}
+  .contents a:hover{color:var(--gold-deep);}
+
+  .policy-section{margin-bottom:44px; scroll-margin-top:20px;}
+  .policy-section h2{font-size:1.5rem; margin-bottom:14px;}
+  .policy-section h3{font-family:"Fraunces",serif; font-size:1.15rem; font-weight:560; margin:20px 0 10px; color:var(--ink-strong);}
+  .policy-section p, .policy-section li{color:var(--ink); font-size:14.5px;}
+  .policy-section ul{margin:12px 0; padding-left:20px;}
+  .policy-section li{margin-bottom:7px;}
+  .important{padding:16px 18px; border-left:3px solid var(--gold); background:var(--gold-tint); color:#5E4527; border-radius:0 6px 6px 0; font-size:14px;}
+  .review-flag{padding:16px 18px; border-left:3px solid #B45309; background:#FDF3E7; color:#7C4A03; border-radius:0 6px 6px 0; font-size:13.5px;}
+  .review-flag strong{display:block; margin-bottom:4px;}
+  .fact-box{padding:18px 20px; background:var(--surface-2); border:1px solid var(--line); border-radius:8px;}
+  .fact-box h3{margin-top:0;}
+  .fact-box p{margin:0;}
+
+  footer{background:var(--band-bg); color:var(--band-muted); padding-block:28px; font-size:12.5px;}
+  footer .wrap{display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap;}
+  footer a{color:var(--band-ink); text-decoration:none;}
+  footer a:hover{color:var(--gold);}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="archMark" viewBox="0 0 64 68">
+    <path d="M7 58V29C7 14.64 18.64 3 33 3s26 11.64 26 26v29H7Zm15 0V33c0-6.08 4.92-11 11-11s11 4.92 11 11v25H22Z" fill-rule="evenodd"/>
+  </symbol>
+</svg>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <span class="mark"><svg class="arch-icon"><use href="#archMark"/></svg></span>
+      <span class="name">Rockgate Academy</span>
+    </a>
+    <a class="back-link" href="index.html">&larr; Back to the website</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Legal information</span>
+    <h1>Terms and Conditions</h1>
+    <p>These terms apply when you enrol on a Rockgate Academy programme or book case support. Please read them before you pay. Last updated: 27 September 2026.</p>
+    <div class="draft-banner">
+      <strong>Before this goes live as final:</strong>
+      This is a solid first draft covering the standard points a training business needs, but it sets real policy
+      (cancellation windows, refund terms, liability limits) rather than just facts. I'd recommend a quick read-through
+      from you, and ideally a solicitor's sign-off, before relying on it commercially &mdash; same as the FOS wording
+      note on the Capital site. The cancellation/refund section in particular reflects a standard, consumer-law-compliant
+      default rather than a business decision you've explicitly confirmed.
+    </div>
+  </div>
+</section>
+
+<section class="policy">
+  <div class="wrap policy-grid">
+    <nav class="contents" aria-label="Terms and conditions contents">
+      <strong>Contents</strong>
+      <a href="#who-we-are">Who we are</a>
+      <a href="#services">Our programmes and services</a>
+      <a href="#enrolment">Enrolment and payment</a>
+      <a href="#cancellation">Cancellation and refunds</a>
+      <a href="#materials">Course materials</a>
+      <a href="#conduct">Live sessions and conduct</a>
+      <a href="#case-support">Bespoke case support</a>
+      <a href="#liability">Liability</a>
+      <a href="#complaints">Complaints</a>
+      <a href="#changes">Changes to these terms</a>
+      <a href="#law">Governing law</a>
+    </nav>
+
+    <div class="policy-copy">
+      <section class="policy-section" id="who-we-are">
+        <h2>1. Who we are</h2>
+        <p>
+          These terms are between you and <strong>Rockgate Academy Ltd</strong>, a company registered in England and Wales
+          under company number <strong>17153023</strong>, with registered office at 71&ndash;75 Shelton Street, Covent
+          Garden, London, WC2H 9JQ ("Rockgate Academy", "we", "us").
+        </p>
+        <div class="important">
+          Rockgate Academy Ltd is a training provider. It is not authorised or regulated by the Financial Conduct
+          Authority and does not provide regulated financial advice.
+        </div>
+      </section>
+
+      <section class="policy-section" id="services">
+        <h2>2. Our programmes and services</h2>
+        <p>We offer CeMAP exam training and related career support, currently:</p>
+        <ul>
+          <li><strong>CeMAP Core</strong> &mdash; a fixed-length, live online group programme;</li>
+          <li><strong>Complete Pathway</strong> &mdash; CeMAP Core plus Beyond CeMAP and a bonus career clarity session;</li>
+          <li><strong>Beyond CeMAP</strong> &mdash; a live online group programme on the industry and what comes after qualification, billed hourly;</li>
+          <li><strong>Bespoke Mortgage Case Support</strong> &mdash; one-to-one help preparing a live case, scoped and quoted before any work begins.</li>
+        </ul>
+        <p>
+          Current programmes and prices are shown on our <a href="index.html#programmes">Programmes page</a>. Prices may
+          change for future cohorts, but the price you're quoted at enrolment is the price you pay for that cohort.
+        </p>
+      </section>
+
+      <section class="policy-section" id="enrolment">
+        <h2>3. Enrolment and payment</h2>
+        <p>
+          You enrol by submitting an enquiry and confirming your place once we've responded. A place on a programme is only
+          reserved once payment has been received in full, unless we agree a different arrangement with you in writing.
+        </p>
+        <p>
+          Payment is taken securely via Monzo. We do not store your card or bank details ourselves. Programme places are
+          limited, and we may need to offer you the next available cohort if the one you enquired about is full.
+        </p>
+      </section>
+
+      <section class="policy-section" id="cancellation">
+        <h2>4. Cancellation and refunds</h2>
+        <div class="review-flag">
+          <strong>Policy default &mdash; please confirm this reflects what you actually want to offer.</strong>
+          The terms below follow the standard UK approach for online course sales, but the exact cancellation window and
+          refund amount are business decisions for you to set, not facts I could look up.
+        </div>
+        <p>
+          If you enrol online, you have a 14-day cooling-off period under the Consumer Contracts Regulations 2013, during
+          which you can cancel for a full refund. If your programme's first live session falls within that 14-day window
+          and you want to secure your place, we'll ask you to confirm you understand that your cancellation right ends
+          once that first session has taken place.
+        </p>
+        <p>
+          Outside the cooling-off period, fees for CeMAP Core, Complete Pathway, and Beyond CeMAP are non-refundable once
+          the programme has started, as places are limited and reserved on your behalf. If you need to withdraw before
+          the programme starts, contact us &mdash; we'll aim to offer a transfer to the next available cohort rather than
+          a refund, at our discretion.
+        </p>
+        <p>
+          If we have to cancel or postpone a cohort (for example, too few learners to run it), you'll be offered a full
+          refund or a place on the next cohort, whichever you prefer.
+        </p>
+      </section>
+
+      <section class="policy-section" id="materials">
+        <h2>5. Course materials</h2>
+        <p>
+          Study materials, slides, recordings, and quizzes provided as part of a programme are for your own personal use
+          while learning with us. You may not copy, resell, redistribute, or publicly share them, in part or in full,
+          without our written permission.
+        </p>
+        <p>
+          Where a programme includes replay access, replays are available for the duration of that programme unless
+          stated otherwise.
+        </p>
+      </section>
+
+      <section class="policy-section" id="conduct">
+        <h2>6. Live sessions and conduct</h2>
+        <p>
+          Live sessions are a shared learning space. We ask all learners to be respectful of the instructor and other
+          participants, and not to record or share sessions without everyone's agreement. We may remove a participant
+          from a live session, without refund, if their conduct is abusive or disruptive to other learners.
+        </p>
+      </section>
+
+      <section class="policy-section" id="case-support">
+        <h2>7. Bespoke mortgage case support</h2>
+        <p>
+          Case support is scoped and quoted before any work begins, based on the information you give us about the case.
+          The quoted fee is payable in full before work starts, unless we agree otherwise in writing.
+        </p>
+        <div class="important">
+          This service supports your understanding and preparation of a case. It does not replace, override, or
+          substitute your firm's CAS (Certificate/Competent Adviser Status) sign-off process &mdash; every case must
+          still be reviewed and confirmed by your own CAS supervisor before submission.
+        </div>
+      </section>
+
+      <section class="policy-section" id="liability">
+        <h2>8. Liability</h2>
+        <p>
+          We provide our programmes and case support with reasonable care and skill. Nothing in these terms limits or
+          excludes our liability for death or personal injury caused by our negligence, or for fraud.
+        </p>
+        <p>
+          Beyond that, our total liability to you in connection with a programme or case support is limited to the
+          amount you paid for it, and we are not liable for indirect or consequential losses, such as loss of income
+          or lost career opportunities.
+        </p>
+      </section>
+
+      <section class="policy-section" id="complaints">
+        <h2>9. Complaints</h2>
+        <p>
+          If you're unhappy with a programme or with case support, please contact us first at
+          <a href="mailto:hello@rockgateacademy.co.uk">hello@rockgateacademy.co.uk</a> so we can try to put things right.
+        </p>
+        <div class="important">
+          Rockgate Academy is a training provider, not a regulated financial services firm, so service complaints are
+          not eligible for referral to the Financial Ombudsman Service &mdash; that route applies to regulated financial
+          advice, not training.
+        </div>
+      </section>
+
+      <section class="policy-section" id="changes">
+        <h2>10. Changes to these terms</h2>
+        <p>
+          We may update these terms from time to time, for example if our programmes or payment provider change. The
+          terms that applied when you enrolled will continue to apply to that enrolment; the latest version applies to
+          any new enrolment.
+        </p>
+      </section>
+
+      <section class="policy-section" id="law">
+        <h2>11. Governing law</h2>
+        <p>
+          These terms are governed by the laws of England and Wales, and any dispute is subject to the exclusive
+          jurisdiction of the courts of England and Wales. See also our <a href="privacy.html">Privacy Policy</a>.
+        </p>
+      </section>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Rockgate Academy Ltd &middot; Company No. 17153023 &middot; Not authorised or regulated by the FCA</span>
+    <span>&copy; 2026 Rockgate Academy Ltd &middot; <a href="index.html">Website</a> &middot; <a href="privacy.html">Privacy Policy</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
