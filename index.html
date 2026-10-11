@@ -109,15 +109,17 @@
   nav.primary a:hover{color:var(--gold-deep);}
   .navcta{display:flex; align-items:center; gap:18px;}
   .navlinks{display:flex; gap:28px;}
-  @media (max-width:820px){ nav.navlinks{display:none;} }
-  @media (max-width:520px){ .navcta{display:none;} }
+  nav.primary a, .navcta .btn, .brand .name{white-space:nowrap;}
+  @media (max-width:1240px){ .brand .tag{display:none;} }
+  @media (max-width:1080px){ nav.navlinks{display:none;} }
+  @media (max-width:760px){ .navcta{display:none;} }
 
   .mobile-toggle{
     display:none; position:relative; align-items:center; justify-content:center;
     width:40px; height:40px; border-radius:4px; border:1px solid var(--line); background:transparent;
     color:var(--ink); cursor:pointer; flex:none;
   }
-  @media (max-width:820px){ .mobile-toggle{display:flex;} }
+  @media (max-width:1080px){ .mobile-toggle{display:flex;} }
   .mobile-toggle__bars{position:absolute; inset:0; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:5px;}
   .mobile-toggle__bars span{width:18px; height:2px; border-radius:999px; background:var(--ink); transition:transform .28s ease, opacity .2s ease;}
   .mobile-toggle__mark{position:absolute; inset:0; margin:auto; width:17px; height:18px; color:var(--ink-strong); opacity:0; transform:scale(.6); transition:transform .3s ease, opacity .24s ease;}
@@ -305,6 +307,18 @@
   .field input:focus, .field select:focus, .field textarea:focus{outline:2px solid var(--gold-deep); outline-offset:1px;}
   form.enquiry .btn{margin-top:4px;}
 
+  [hidden]{display:none !important;}
+  .booking{grid-column:1 / -1; background:var(--surface); color:var(--ink); border-radius:8px; padding:30px; box-shadow:var(--shadow); scroll-margin-top:90px;}
+  .booking h3{font-size:1.2rem;}
+  .booking-intro{color:var(--muted); font-size:13.5px; margin-top:8px; max-width:64ch;}
+  .booking-gate{display:grid; gap:14px; justify-items:start; margin-top:18px;}
+  .booking-caveat{font-size:12.5px; color:var(--muted); max-width:70ch;}
+  .booking-caveat a, .booking-fallback a{color:var(--gold-deep); text-decoration:underline;}
+  .booking-embed{margin-top:18px;}
+  .booking-embed iframe{display:block; width:100%; height:780px; border:0; border-radius:6px;}
+  @media (max-width:620px){ .booking{padding:22px 18px;} .booking-embed iframe{height:920px;} }
+  .booking-fallback{font-size:12.5px; color:var(--muted); margin-top:12px;}
+
   /* footer */
   footer{background:var(--band-bg); color:var(--band-muted); border-top:1px solid var(--band-line);}
   footer .wrap{padding-block:28px 24px;}
@@ -380,6 +394,7 @@
       <a href="#enquire">Enquire</a>
     </nav>
     <div class="navcta">
+      <a class="btn btn-line" href="#book">Book a Call</a>
       <a class="btn btn-gold" href="#enquire">Enquire Now</a>
     </div>
     <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
@@ -394,6 +409,7 @@
       <a href="#programmes">Programmes</a>
       <a href="#faq">FAQs</a>
       <a href="#enquire">Enquire</a>
+      <a class="btn btn-line" href="#book">Book a Call</a>
       <a class="btn btn-gold" href="#enquire">Enquire Now</a>
     </div>
   </div>
@@ -746,6 +762,17 @@
       <button class="btn btn-gold" type="submit">Submit Enquiry</button>
       <p id="enquirySuccess" class="anchor-sub" hidden>Your email app should open now with your enquiry ready to review and send.</p>
     </form>
+
+    <div class="booking" id="book">
+      <h3>Prefer to pick a time yourself?</h3>
+      <p class="booking-intro">Book a free 30-minute intro call with Naveed to talk through the programmes and which one suits where you are. It's a general conversation about our training &mdash; not mortgage or financial advice.</p>
+      <div class="booking-gate" id="bookingGate">
+        <p class="booking-caveat">Clicking below loads Calendly, a third-party booking service. Calendly may set cookies and process the details you enter, and its own privacy policy applies. Nothing from Calendly loads until you click. See our <a href="privacy.html#transfers">Privacy Policy</a>.</p>
+        <button class="btn btn-gold" type="button" id="showBooking">Show available times</button>
+      </div>
+      <div class="booking-embed" id="bookingEmbed" hidden></div>
+      <p class="booking-fallback" id="bookingFallback" hidden>Calendar not loading? <a href="https://calendly.com/hello-rockgateacademy/30min" target="_blank" rel="noopener noreferrer">Open the booking page in a new tab</a>.</p>
+    </div>
   </div>
 </section>
 
@@ -786,6 +813,28 @@
           toggle.setAttribute('aria-expanded', 'false');
           toggle.setAttribute('aria-label', 'Open menu');
         });
+      });
+    }
+
+    var showBooking = document.getElementById('showBooking');
+    var bookingGate = document.getElementById('bookingGate');
+    var bookingEmbed = document.getElementById('bookingEmbed');
+    var bookingFallback = document.getElementById('bookingFallback');
+    if (showBooking && bookingGate && bookingEmbed) {
+      showBooking.addEventListener('click', function () {
+        var theme = document.documentElement.getAttribute('data-theme');
+        var dark = theme === 'dark' || (theme !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        var colours = dark
+          ? 'background_color=16211c&text_color=ece7da&primary_color=d3a566'
+          : 'background_color=ffffff&text_color=0f241f&primary_color=8c6435';
+        var frame = document.createElement('iframe');
+        frame.src = 'https://calendly.com/hello-rockgateacademy/30min?embed_domain=' +
+          encodeURIComponent(window.location.hostname) + '&embed_type=Inline&' + colours;
+        frame.title = 'Book a free intro call with Rockgate Academy';
+        bookingEmbed.appendChild(frame);
+        bookingGate.hidden = true;
+        bookingEmbed.hidden = false;
+        if (bookingFallback) bookingFallback.hidden = false;
       });
     }
 
