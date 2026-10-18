@@ -150,7 +150,8 @@
   /* hero */
   .hero .wrap{display:grid; grid-template-columns:1.05fr 0.85fr; gap:56px; align-items:center;}
   @media (max-width:900px){ .hero .wrap{grid-template-columns:1fr;} }
-  .hero h1{font-size:clamp(2.3rem,4.6vw,3.4rem); line-height:1.06; font-weight:560; margin-block:18px 16px;}
+  .hero h1{font-size:clamp(2.1rem,4vw,3.05rem); line-height:1.1; font-weight:560; margin-block:18px 14px;}
+  .hero-trio{font-family:"Fraunces",serif; font-style:italic; font-weight:500; font-size:1.2rem; color:var(--gold-deep); margin-bottom:16px;}
   .checks{list-style:none; margin:26px 0 0; padding:0; display:grid; gap:11px;}
   .checks li{display:flex; gap:10px; align-items:flex-start; font-size:14.5px; color:var(--ink);}
   .checks svg{flex:none; margin-top:2px; width:16px; height:16px; color:var(--good);}
@@ -188,6 +189,8 @@
   .gate-num b{font-family:"IBM Plex Mono",monospace; font-size:12px; letter-spacing:.1em;}
   .gate h3{font-size:1.24rem; font-weight:560;}
   .gate p{color:var(--muted); font-size:14.5px;}
+  .gate .gate-price{font-family:"IBM Plex Mono",monospace; font-size:12.5px; color:var(--ink-strong); letter-spacing:.02em; margin-top:auto; padding-top:4px;}
+  .gate .btn{margin-top:14px; width:100%;}
 
   /* story / mission */
   .story .wrap{display:grid; grid-template-columns:1.1fr 0.9fr; gap:64px;}
@@ -388,10 +391,11 @@
     </a>
     <nav class="primary navlinks">
       <a href="#top">Home</a>
-      <a href="#story">Our Story</a>
-      <a href="#programmes">Programmes</a>
+      <a href="#story">About Us</a>
+      <a href="#programmes">CeMAP Training</a>
+      <a href="#bespoke">Adviser Mentoring</a>
       <a href="#faq">FAQs</a>
-      <a href="#enquire">Enquire</a>
+      <a href="#enquire">Contact</a>
     </nav>
     <div class="navcta">
       <a class="btn btn-line" href="#book">Book a Call</a>
@@ -405,10 +409,11 @@
   <div class="mobile-menu" id="mobileMenu">
     <div class="wrap">
       <a href="#top">Home</a>
-      <a href="#story">Our Story</a>
-      <a href="#programmes">Programmes</a>
+      <a href="#story">About Us</a>
+      <a href="#programmes">CeMAP Training</a>
+      <a href="#bespoke">Adviser Mentoring</a>
       <a href="#faq">FAQs</a>
-      <a href="#enquire">Enquire</a>
+      <a href="#enquire">Contact</a>
       <a class="btn btn-line" href="#book">Book a Call</a>
       <a class="btn btn-gold" href="#enquire">Enquire Now</a>
     </div>
@@ -419,11 +424,13 @@
   <div class="wrap">
     <div class="reveal">
       <span class="eyebrow"><svg class="arch-icon"><use href="#archMark"/></svg> Rockgate Academy &middot; CeMAP training</span>
-      <h1>From beginner to<br>mortgage professional.</h1>
-      <p class="lede">Rockgate Academy offers CeMAP training and real-world industry guidance for people who want more than just exam prep &mdash; from qualification through to understanding the wider journey into the mortgage industry.</p>
+      <h1>Your mortgage career starts here. Your development doesn&rsquo;t stop at CeMAP.</h1>
+      <p class="hero-trio">Explore. Qualify. Develop.</p>
+      <p class="lede">Whether you&rsquo;re considering a career change, preparing for your CeMAP examinations, or looking to develop your skills as a mortgage adviser, Rockgate Academy provides personalised training, practical guidance and professional mentoring.</p>
+      <p class="lede" style="margin-top:10px;">Our approach combines structured learning, small-group teaching and individual attention to help you build knowledge, confidence and practical skills throughout your professional journey.</p>
       <div class="herobtns">
-        <a class="btn btn-gold" href="#programmes">Explore Programmes</a>
-        <a class="btn btn-line" href="#story">Our Story</a>
+        <a class="btn btn-gold" href="#programmes">Explore Our Programmes</a>
+        <a class="btn btn-line" href="#enquire">Book a Career Discovery Consultation</a>
       </div>
       <ul class="checks">
         <li><svg><use href="#checkMark"/></svg> Live online CeMAP training with structured weekly support</li>
@@ -449,7 +456,7 @@
             <span>Gate&nbsp;One</span>
           </div>
         </div>
-        <p class="arch-caption">Three gates stand between beginner and qualified adviser. This is where you start.</p>
+        <p class="arch-caption">Three gates, one professional journey. This is where you start.</p>
       </div>
     </div>
   </div>
@@ -459,24 +466,30 @@
 
 <section id="journey">
   <div class="wrap">
-    <span class="eyebrow">The Rockgate journey</span>
-    <h2 style="font-size:clamp(1.7rem,3vw,2.3rem); margin-top:14px;">Three gates, one path into the industry</h2>
-    <p class="lede" style="margin-top:14px;">Many learners can find CeMAP materials, but still feel unsure about where to begin, how the industry works, and what comes after passing. We exist to bridge that gap &mdash; one gate at a time.</p>
+    <span class="eyebrow">Three gates</span>
+    <h2 style="font-size:clamp(1.7rem,3vw,2.3rem); margin-top:14px;">Three gates. One professional journey.</h2>
+    <p class="lede" style="margin-top:14px;">At Rockgate Academy, the journey into mortgage advice begins before your first examination and continues after qualification. Choose the pathway that matches your next step.</p>
     <div class="gates">
       <div class="gate">
-        <div class="gate-num"><svg class="arch-icon"><use href="#archMark"/></svg><b>GATE 01</b></div>
-        <h3>Start with CeMAP</h3>
-        <p>Build strong foundations with structured teaching, practical explanations, and a clear study plan.</p>
+        <div class="gate-num"><svg class="arch-icon"><use href="#archMark"/></svg><b>GATE ONE &middot; EXPLORE</b></div>
+        <h3>Discover your future</h3>
+        <p>Considering a career in mortgage advice? Explore the profession, qualifications, employment routes and whether the career aligns with your ambitions.</p>
+        <div class="gate-price">&pound;50 &middot; 30-minute online consultation</div>
+        <a class="btn btn-line" href="#enquire">Explore a Mortgage Career</a>
       </div>
       <div class="gate">
-        <div class="gate-num"><svg class="arch-icon"><use href="#archMark"/></svg><b>GATE 02</b></div>
-        <h3>Understand the industry</h3>
-        <p>Learn what the mortgage profession really looks like beyond the exams &mdash; routes, roles, and progression.</p>
+        <div class="gate-num"><svg class="arch-icon"><use href="#archMark"/></svg><b>GATE TWO &middot; QUALIFY</b></div>
+        <h3>Build your knowledge</h3>
+        <p>Ready to prepare for CeMAP? Structured, tutor-led teaching, examination preparation, revision support and individual guidance in small groups.</p>
+        <div class="gate-price">CeMAP Core &pound;1,250 &middot; Complete Pathway &pound;1,950</div>
+        <a class="btn btn-gold" href="#programmes">Explore CeMAP Training</a>
       </div>
       <div class="gate">
-        <div class="gate-num"><svg class="arch-icon"><use href="#archMark"/></svg><b>GATE 03</b></div>
-        <h3>Build beyond it</h3>
-        <p>Move forward with greater clarity on career direction, confidence, and the practical next steps after qualification.</p>
+        <div class="gate-num"><svg class="arch-icon"><use href="#archMark"/></svg><b>GATE THREE &middot; DEVELOP</b></div>
+        <h3>Build professional confidence</h3>
+        <p>Qualified, but want to improve practical skills? Explore simulated interviews, sourcing exercises, case preparation and personalised mentoring.</p>
+        <div class="gate-price">One-to-one mentoring from &pound;120/hour</div>
+        <a class="btn btn-line" href="#bespoke">Explore Adviser Mentoring</a>
       </div>
     </div>
   </div>
@@ -611,24 +624,34 @@
 
 <section id="trust">
   <div class="wrap">
-    <span class="eyebrow">Why learners trust Rockgate Academy</span>
+    <span class="eyebrow">Why Rockgate Academy</span>
     <h2 style="font-size:clamp(1.7rem,3vw,2.3rem); margin-top:14px;">Built on clarity, guidance, and real understanding</h2>
     <p class="lede" style="margin-top:14px;">Rockgate Academy was founded with a simple belief: people need more than just a course &mdash; they need a clearer path. This is not just about exam prep; it is about helping learners understand the bigger picture and take meaningful steps towards becoming career-ready professionals.</p>
     <div class="features">
       <div class="feature">
         <svg class="arch-icon"><use href="#archMark"/></svg>
-        <h3>Clarity-led approach</h3>
-        <p>Rockgate Academy was created to make the path into mortgage advice feel clearer, more supportive, and less overwhelming for people starting out.</p>
+        <h3>Personalised learning</h3>
+        <p>Guidance adapted to your experience, learning needs and professional ambitions.</p>
       </div>
       <div class="feature">
         <svg class="arch-icon"><use href="#archMark"/></svg>
-        <h3>More than exam prep</h3>
-        <p>This is not only about CeMAP &mdash; it is about helping learners understand the bigger picture, build confidence, and move forward with real direction.</p>
+        <h3>Small-group training</h3>
+        <p>Deliberately limited groups with room for questions and discussion.</p>
       </div>
       <div class="feature">
         <svg class="arch-icon"><use href="#archMark"/></svg>
-        <h3>Built from lived experience</h3>
-        <p>Rockgate Academy is grounded in genuine lived experience and a real understanding of the questions and decisions people face at the start.</p>
+        <h3>Practical industry perspective</h3>
+        <p>Technical knowledge connected to realistic mortgage industry examples.</p>
+      </div>
+      <div class="feature">
+        <svg class="arch-icon"><use href="#archMark"/></svg>
+        <h3>Beyond the examination</h3>
+        <p>Career exploration, CeMAP preparation and adviser skills development.</p>
+      </div>
+      <div class="feature">
+        <svg class="arch-icon"><use href="#archMark"/></svg>
+        <h3>Clear programme fees</h3>
+        <p>Transparent pricing and agreed scope before enrolment.</p>
       </div>
     </div>
   </div>
