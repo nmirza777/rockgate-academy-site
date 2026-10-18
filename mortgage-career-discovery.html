@@ -205,6 +205,9 @@
   }
   .field input:focus, .field select:focus, .field textarea:focus{outline:2px solid var(--gold-deep); outline-offset:1px;}
   form.enquiry .btn{margin-top:4px;}
+  .consent-field{display:flex; gap:10px; align-items:flex-start; cursor:pointer;}
+  .consent-field input{flex:none; width:16px; height:16px; margin-top:2px; accent-color:var(--gold-deep);}
+  .consent-field span{font-size:12.5px; color:var(--muted); line-height:1.5;}
   [hidden]{display:none !important;}
   .safe-notes{display:grid; gap:10px; margin-top:18px;}
   .safe-note{display:flex; gap:9px; font-size:12.5px; color:var(--muted); max-width:70ch;}
@@ -377,7 +380,7 @@
   <div class="wrap">
     <span class="eyebrow">Book your consultation</span>
     <h2 style="font-size:clamp(1.6rem,3vw,2.1rem); margin-top:14px;">Mortgage Career Discovery Consultation</h2>
-    <p class="lede" style="margin-top:14px;">Request your consultation below. Your appointment is secured once payment has been received and your booking is confirmed.</p>
+    <p class="lede" style="margin-top:14px;">Request your consultation below. Your appointment is only confirmed once your payment has been received and verified &mdash; a payment link or provisional request is not itself a confirmation.</p>
     <div class="book-grid">
       <div class="quote-panel">
         <div>
@@ -385,9 +388,11 @@
           <p class="anchor-sub">Online video consultation &middot; payment via a secure Monzo payment link</p>
         </div>
         <ul class="steps">
-          <li><span class="stepnum">1</span> Send your request using the form</li>
-          <li><span class="stepnum">2</span> We'll email a secure Monzo payment link, usually within 1 business day</li>
-          <li><span class="stepnum">3</span> Once payment is received, Naveed confirms your appointment and time by email</li>
+          <li><span class="stepnum">1</span> Submit your consultation request using the form</li>
+          <li><span class="stepnum">2</span> We'll send you a secure &pound;50 Monzo payment link, usually within 1 business day</li>
+          <li><span class="stepnum">3</span> Once your payment is received and verified, your appointment is confirmed</li>
+          <li><span class="stepnum">4</span> You'll receive confirmation of your 30-minute appointment time by email</li>
+          <li><span class="stepnum">5</span> Your online meeting details follow ahead of the consultation</li>
         </ul>
         <p class="compliance-note">
           <svg class="arch-icon"><use href="#archMark"/></svg>
@@ -422,9 +427,13 @@
           <label for="dfmsg">What would you like to get from this consultation?</label>
           <textarea id="dfmsg" name="message" rows="4" placeholder="Your main question, concern, or what's prompted you to consider this career" required></textarea>
         </div>
+        <label class="consent-field">
+          <input type="checkbox" id="dfearlyconsent" name="early_consent" value="Yes" required>
+          <span>I would like my consultation to take place within 14 days of today, before my statutory 14-day cancellation period ends. I understand that once the consultation has been fully delivered, I will lose my right to cancel it for a refund under the Consumer Contracts Regulations 2013. This does not affect my right to cancel or reschedule for a full refund, with no minimum notice required, at any time before the consultation takes place.</span>
+        </label>
         <input type="checkbox" name="botcheck" id="dfbotcheck" style="display:none;" tabindex="-1" autocomplete="off">
         <button class="btn btn-gold" type="submit" id="discoverySubmit">Request Your Career Discovery Consultation</button>
-        <p id="discoverySuccess" class="anchor-sub" hidden>Thank you &mdash; your request has been sent. We'll reply with a secure Monzo payment link to confirm your slot, usually within 1 business day.</p>
+        <p id="discoverySuccess" class="anchor-sub" hidden>Thank you &mdash; your request has been sent. We'll be in touch with a secure Monzo payment link. Your appointment is only confirmed once we've received and verified your payment.</p>
         <p id="discoveryError" class="anchor-sub" hidden style="color:#B3443D;">Something went wrong sending your request. Please try again, or email us directly at <a href="mailto:hello@rockgateacademy.co.uk" style="color:inherit; text-decoration:underline;">hello@rockgateacademy.co.uk</a>.</p>
         <div class="safe-notes">
           <div class="safe-note">
@@ -478,9 +487,12 @@
     <h2 style="font-size:clamp(1.6rem,3vw,2.1rem); margin-top:14px;">Booking, rescheduling and refund terms</h2>
     <div class="terms-copy">
       <div>
-        <h3>Your statutory cancellation rights</h3>
-        <p>Under the Consumer Contracts Regulations 2013, you have the right to cancel this consultation for a full refund within 14 days of booking it, for any reason, without needing to give one &mdash; <strong>this right is not limited by how much notice you give.</strong></p>
-        <p style="margin-top:10px;">Because consultations are usually held sooner than 14 days after booking, confirming your appointment and proceeding with payment is treated as your express request for the consultation to go ahead within that 14-day period. Your cancellation right continues to apply, in full, right up until your consultation has actually taken place. Once it has been delivered in full, the right to cancel for a refund under these Regulations ends, because you asked for it to begin early and it has now been carried out.</p>
+        <h3>Your Statutory Cancellation Rights</h3>
+        <p>Under the Consumer Contracts (Information, Cancellation and Additional Charges) Regulations 2013, customers booking consultations online normally have the right to cancel within 14 days of entering into the contract, without giving a reason.</p>
+        <p style="margin-top:10px;">If you wish your consultation to take place during this 14-day period, we will ask you to expressly request that the service begins before the cancellation period expires.</p>
+        <p style="margin-top:10px;">If you cancel after the service has begun but before it has been fully delivered, you may be required to pay a proportionate amount for the services already provided, where permitted by law.</p>
+        <p style="margin-top:10px;">Once the consultation has been fully delivered, your statutory cancellation right may end, provided the necessary legal requirements have been satisfied, including your prior express request and acknowledgement that you will lose that right once the service is fully performed.</p>
+        <p style="margin-top:10px;">Our standard rescheduling and refund policies apply in addition to, and do not override, your statutory consumer rights.</p>
       </div>
       <div>
         <h3>Cancelling, rescheduling and refunds</h3>
@@ -489,7 +501,7 @@
       </div>
       <div>
         <h3>Payment</h3>
-        <p>We send a secure Monzo payment link, usually within 1 business day of your request. Your slot is held provisionally for 48 hours while payment is completed; after that we may release it to another enquirer. Naveed personally confirms your appointment by email once payment has been received &mdash; a provisional request or booking email alone is not confirmation that payment has been received.</p>
+        <p>We send a secure Monzo payment link, usually within 1 business day of your request. Your slot is held provisionally for 48 hours while payment is completed; after that we may release it to another enquirer. Naveed personally confirms your appointment and sends your online meeting details by email once your payment has been received and verified &mdash; a provisional request, payment link, or booking email alone is not confirmation that your appointment is secured.</p>
       </div>
       <div>
         <h3>CeMAP training credit</h3>
@@ -569,7 +581,8 @@
           name: name,
           phone: phone || 'Not provided',
           'Current profession / background': background || 'Not provided',
-          message: message
+          message: message,
+          'Requested early service (within 14 days) & cancellation-right acknowledgement': document.getElementById('dfearlyconsent').checked ? 'Yes - confirmed at ' + new Date().toISOString() : 'Not confirmed'
         };
 
         fetch('https://api.web3forms.com/submit', {
