@@ -281,7 +281,7 @@
       <span class="mark"><svg class="arch-icon"><use href="#archMark"/></svg></span>
       <span>
         <span class="name">Rockgate Academy</span>
-        <span class="tag">From beginner to mortgage professional</span>
+        <span class="tag">Explore. Qualify. Develop.</span>
       </span>
     </a>
     <nav class="primary navlinks">
@@ -293,7 +293,7 @@
       <a href="index.html#enquire">Contact</a>
     </nav>
     <div class="navcta">
-      <a class="btn btn-line" href="index.html#book">Book a Call</a>
+      <a class="btn btn-line" href="#book-consultation">Career Discovery</a>
       <a class="btn btn-gold" href="index.html#enquire">Enquire Now</a>
     </div>
     <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
@@ -309,7 +309,7 @@
       <a href="index.html#bespoke">Adviser Mentoring</a>
       <a href="index.html#faq">FAQs</a>
       <a href="index.html#enquire">Contact</a>
-      <a class="btn btn-line" href="index.html#book">Book a Call</a>
+      <a class="btn btn-line" href="#book-consultation">Career Discovery</a>
       <a class="btn btn-gold" href="index.html#enquire">Enquire Now</a>
     </div>
   </div>
@@ -422,12 +422,14 @@
           <label for="dfmsg">What would you like to get from this consultation?</label>
           <textarea id="dfmsg" name="message" rows="4" placeholder="Your main question, concern, or what's prompted you to consider this career" required></textarea>
         </div>
-        <button class="btn btn-gold" type="submit">Request Your Career Discovery Consultation</button>
-        <p id="discoverySuccess" class="anchor-sub" hidden>Your email app should open now with your request ready to review and send. We'll reply with a secure Monzo payment link to confirm your slot, usually within 1 business day.</p>
+        <input type="checkbox" name="botcheck" id="dfbotcheck" style="display:none;" tabindex="-1" autocomplete="off">
+        <button class="btn btn-gold" type="submit" id="discoverySubmit">Request Your Career Discovery Consultation</button>
+        <p id="discoverySuccess" class="anchor-sub" hidden>Thank you &mdash; your request has been sent. We'll reply with a secure Monzo payment link to confirm your slot, usually within 1 business day.</p>
+        <p id="discoveryError" class="anchor-sub" hidden style="color:#B3443D;">Something went wrong sending your request. Please try again, or email us directly at <a href="mailto:hello@rockgateacademy.co.uk" style="color:inherit; text-decoration:underline;">hello@rockgateacademy.co.uk</a>.</p>
         <div class="safe-notes">
           <div class="safe-note">
             <svg class="arch-icon"><use href="#archMark"/></svg>
-            <span>Safe enquiry note: this form does not store data in the page itself. Submitting it prepares an email on your device so you can review the message before sending.</span>
+            <span>Safe enquiry note: your details are sent securely and used only to arrange and prepare for your consultation &mdash; see our <a href="privacy.html" style="color:inherit; text-decoration:underline;">Privacy Policy</a>.</span>
           </div>
           <div class="safe-note">
             <svg class="arch-icon"><use href="#archMark"/></svg>
@@ -476,16 +478,14 @@
     <h2 style="font-size:clamp(1.6rem,3vw,2.1rem); margin-top:14px;">Booking, rescheduling and refund terms</h2>
     <div class="terms-copy">
       <div>
-        <h3>Rescheduling</h3>
-        <p>You can reschedule your consultation free of charge by emailing <a href="mailto:hello@rockgateacademy.co.uk" style="color:var(--gold-deep); text-decoration:underline;">hello@rockgateacademy.co.uk</a> or messaging us on WhatsApp, provided you give at least 24 hours' notice before your scheduled time.</p>
-      </div>
-      <div>
-        <h3>Cancelling and refunds</h3>
-        <p>If you cancel more than 24 hours before your scheduled consultation, we will refund the full &pound;50 fee. If you cancel with less than 24 hours' notice, or do not attend, the fee is not refundable, but we will offer you one free reschedule to a new time instead.</p>
-      </div>
-      <div>
         <h3>Your statutory cancellation rights</h3>
-        <p>Under the Consumer Contracts Regulations 2013, you normally have 14 days to cancel a service bought online without giving a reason. Because consultations are usually booked and delivered sooner than this, by confirming your appointment you are asking for the consultation to begin within that 14-day period. Once the consultation has been delivered in full, your right to cancel for a refund under these Regulations no longer applies; before that point, the rescheduling and refund terms above apply in full, regardless of the 14-day period.</p>
+        <p>Under the Consumer Contracts Regulations 2013, you have the right to cancel this consultation for a full refund within 14 days of booking it, for any reason, without needing to give one &mdash; <strong>this right is not limited by how much notice you give.</strong></p>
+        <p style="margin-top:10px;">Because consultations are usually held sooner than 14 days after booking, confirming your appointment and proceeding with payment is treated as your express request for the consultation to go ahead within that 14-day period. Your cancellation right continues to apply, in full, right up until your consultation has actually taken place. Once it has been delivered in full, the right to cancel for a refund under these Regulations ends, because you asked for it to begin early and it has now been carried out.</p>
+      </div>
+      <div>
+        <h3>Cancelling, rescheduling and refunds</h3>
+        <p>If you need to cancel or reschedule before your consultation takes place, tell us by emailing <a href="mailto:hello@rockgateacademy.co.uk" style="color:var(--gold-deep); text-decoration:underline;">hello@rockgateacademy.co.uk</a> or messaging us on WhatsApp &mdash; we'll refund the full &pound;50 fee, or move you to a new time, whichever you prefer. There is no minimum notice period for this. We'd simply appreciate as much notice as you can give, so the slot can be offered to someone else.</p>
+        <p style="margin-top:10px;">If you book a specific time and then don't attend without telling us beforehand, we won't have been able to deliver the session or offer that slot to anyone else. In that situation the fee for that missed appointment isn't refunded, but we will always offer you one free reschedule to a new time rather than requiring a new payment.</p>
       </div>
       <div>
         <h3>Payment</h3>
@@ -539,27 +539,59 @@
       });
     }
 
+    var WEB3FORMS_ACCESS_KEY = '6f4ed4db-606d-434a-b820-4eda60fcc8ad';
+
     var form = document.getElementById('discoveryForm');
     var success = document.getElementById('discoverySuccess');
+    var errorNote = document.getElementById('discoveryError');
+    var submitBtn = document.getElementById('discoverySubmit');
     if (form) {
       form.addEventListener('submit', function (event) {
         event.preventDefault();
+        if (document.getElementById('dfbotcheck').checked) return;
+
+        if (success) success.hidden = true;
+        if (errorNote) errorNote.hidden = true;
+        if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
+
         var name = document.getElementById('dfname').value.trim();
         var email = document.getElementById('dfemail').value.trim();
         var phone = document.getElementById('dfphone').value.trim();
         var background = document.getElementById('dfbackground').value.trim();
         var message = document.getElementById('dfmsg').value.trim();
 
-        var subject = encodeURIComponent('Mortgage Career Discovery Consultation Request');
-        var body = encodeURIComponent(
-          'Name: ' + name + '\n' +
-          'Email: ' + email + '\n' +
-          'Phone: ' + (phone || 'Not provided') + '\n' +
-          'Current profession / background: ' + (background || 'Not provided') + '\n\n' +
-          'What they would like from the consultation:\n' + message
-        );
-        window.location.href = 'mailto:hello@rockgateacademy.co.uk?subject=' + subject + '&body=' + body;
-        if (success) success.hidden = false;
+        var payload = {
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: 'Mortgage Career Discovery Consultation Request',
+          from_name: name,
+          email: email,
+          replyto: email,
+          name: name,
+          phone: phone || 'Not provided',
+          'Current profession / background': background || 'Not provided',
+          message: message
+        };
+
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(payload)
+        })
+          .then(function (response) { return response.json().then(function (json) { return { ok: response.status === 200, json: json }; }); })
+          .then(function (result) {
+            if (result.ok && result.json && result.json.success !== false) {
+              form.reset();
+              if (success) success.hidden = false;
+            } else {
+              if (errorNote) errorNote.hidden = false;
+            }
+          })
+          .catch(function () {
+            if (errorNote) errorNote.hidden = false;
+          })
+          .finally(function () {
+            if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Request Your Career Discovery Consultation'; }
+          });
       });
     }
   })();
