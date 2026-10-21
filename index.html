@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rockgate Academy | Explore. Qualify. Develop.</title>
-<meta name="description" content="Rockgate Academy offers CeMAP training and real-world industry guidance for people who want more than just exam prep.">
+<meta name="description" content="Stuck on CeMAP? A free 30-minute diagnostic finds exactly where you're losing marks, then Rockgate Academy coaches you through it — one module, or the full qualification.">
 <link rel="canonical" href="https://rockgateacademy.co.uk/">
 <meta name="theme-color" content="#0F241F">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -99,28 +99,30 @@
 
   /* header */
   header.site{position:sticky; top:0; z-index:20; background:color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter:blur(8px); border-bottom:1px solid var(--line);}
-  header.site .wrap{display:flex; align-items:center; justify-content:space-between; gap:24px; padding-block:14px;}
+  header.site .wrap{display:flex; align-items:center; justify-content:space-between; gap:10px; padding-block:14px;}
   .brand{display:flex; align-items:center; gap:12px; text-decoration:none;}
   .brand .mark{width:38px; height:40px; border-radius:8px; background:var(--band-bg); display:flex; align-items:center; justify-content:center; color:var(--gold); flex:none;}
   .brand .mark .arch-icon{width:19px; height:20px;}
   .brand .name{font-family:"Fraunces",serif; font-weight:560; font-size:1.14rem; color:var(--ink-strong); line-height:1.1; display:block;}
   .brand .tag{font-size:11.5px; color:var(--muted); letter-spacing:0.03em;}
-  nav.primary{display:flex; align-items:center; gap:28px;}
-  nav.primary a{text-decoration:none; font-size:14.5px; font-weight:500; color:var(--ink);}
+  nav.primary{display:flex; align-items:center; gap:16px;}
+  nav.primary a{text-decoration:none; font-size:13.5px; font-weight:500; color:var(--ink);}
   nav.primary a:hover{color:var(--gold-deep);}
   .navcta{display:flex; align-items:center; gap:18px;}
-  .navlinks{display:flex; gap:28px;}
+  .navlinks{display:flex; gap:16px;}
   nav.primary a, .navcta .btn, .brand .name{white-space:nowrap;}
   @media (max-width:1240px){ .brand .tag{display:none;} }
-  @media (max-width:1080px){ nav.navlinks{display:none;} }
-  @media (max-width:760px){ .navcta{display:none;} }
+  @media (max-width:1240px){ nav.navlinks{display:none;} .navcta{display:none;} }
+  a.mobile-pin{display:none;}
+  @media (max-width:1240px){ a.mobile-pin{display:inline-flex; padding:8px 12px; font-size:12.5px; flex:none;} }
+  @media (max-width:420px){ .brand .name{font-size:1rem;} }
 
   .mobile-toggle{
     display:none; position:relative; align-items:center; justify-content:center;
     width:40px; height:40px; border-radius:4px; border:1px solid var(--line); background:transparent;
     color:var(--ink); cursor:pointer; flex:none;
   }
-  @media (max-width:1080px){ .mobile-toggle{display:flex;} }
+  @media (max-width:1240px){ .mobile-toggle{display:flex;} }
   .mobile-toggle__bars{position:absolute; inset:0; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:5px;}
   .mobile-toggle__bars span{width:18px; height:2px; border-radius:999px; background:var(--ink); transition:transform .28s ease, opacity .2s ease;}
   .mobile-toggle__mark{position:absolute; inset:0; margin:auto; width:17px; height:18px; color:var(--ink-strong); opacity:0; transform:scale(.6); transition:transform .3s ease, opacity .24s ease;}
@@ -180,6 +182,22 @@
   .divider{display:flex; align-items:center; gap:18px; color:var(--gold-deep); padding-block:0 0;}
   .divider .line{flex:1; height:1px; background:var(--line);}
   .divider .arch-icon{width:20px; height:21px;}
+
+  /* sound familiar */
+  .familiar-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:20px; margin-top:40px;}
+  @media (max-width:760px){ .familiar-grid{grid-template-columns:1fr;} }
+  .familiar-card{background:var(--surface); border:1px solid var(--line); border-radius:6px; padding:22px 24px;}
+  .familiar-card p{font-family:"Fraunces",serif; font-style:italic; color:var(--ink-strong); font-size:1.05rem; line-height:1.45;}
+  .familiar-note{margin-top:28px; font-size:14.5px; color:var(--muted);}
+  .familiar-note a{color:var(--gold-deep); text-decoration:underline;}
+
+  /* how it works */
+  .howsteps{display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:44px;}
+  @media (max-width:860px){ .howsteps{grid-template-columns:1fr;} }
+  .howstep{background:var(--surface); border:1px solid var(--line); border-radius:6px; padding:28px 24px;}
+  .howstep .stepnum{font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--gold-deep); border:1px solid var(--line); background:var(--surface-2); border-radius:50%; width:30px; height:30px; display:flex; align-items:center; justify-content:center;}
+  .howstep h3{font-size:1.1rem; font-weight:600; font-family:"Archivo",sans-serif; margin-top:16px;}
+  .howstep p{color:var(--muted); font-size:14.5px; margin-top:8px;}
 
   /* three gates */
   .gates{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:44px; border-radius:4px; overflow:hidden;}
@@ -241,13 +259,6 @@
 
   .compliance-note{display:flex; gap:9px; align-items:flex-start; margin-top:28px; font-size:12.5px; color:var(--muted); max-width:68ch;}
   .compliance-note .arch-icon{flex:none; width:15px; height:15px; margin-top:2px; color:var(--gold-deep);}
-
-  /* trust features */
-  .features{display:grid; grid-template-columns:repeat(3,1fr); gap:32px; margin-top:44px;}
-  @media (max-width:860px){ .features{grid-template-columns:1fr;} }
-  .feature .arch-icon{width:26px; height:27px; color:var(--gold-deep);}
-  .feature h3{font-size:1.08rem; font-weight:600; font-family:"Archivo",sans-serif; margin-top:14px;}
-  .feature p{color:var(--muted); font-size:14.5px; margin-top:8px;}
 
   /* founder */
   .founder .wrap{display:grid; grid-template-columns:auto 1fr; gap:40px; align-items:start;}
@@ -376,8 +387,9 @@
     <div class="links">
       <a href="mailto:hello@rockgateacademy.co.uk"><svg class="topstrip-icon"><use href="#iconMail"/></svg>hello@rockgateacademy.co.uk</a>
       <a href="tel:+447424707984"><svg class="topstrip-icon"><use href="#iconPhone"/></svg>+44 7424 707984</a>
+      <a href="cemap-diagnostic">Free 30-min CeMAP Diagnostic &rarr;</a>
     </div>
-    <a href="https://wa.me/447424707984?text=Hello%20Rockgate%20Academy%2C%20I%27d%20like%20to%20find%20out%20more%20about%20your%20programmes." target="_blank" rel="noopener noreferrer"><svg class="topstrip-icon"><use href="#iconWhatsapp"/></svg>Message us on WhatsApp</a>
+    <a href="https://wa.me/447424707984?text=Hello%20Rockgate%20Academy%2C%20I%27m%20stuck%20on%20CeMAP%20and%20would%20like%20a%20free%20diagnostic." target="_blank" rel="noopener noreferrer"><svg class="topstrip-icon"><use href="#iconWhatsapp"/></svg>Message us on WhatsApp</a>
   </div>
 </div>
 
@@ -392,16 +404,18 @@
     </a>
     <nav class="primary navlinks">
       <a href="#top">Home</a>
-      <a href="#story">About Us</a>
-      <a href="#programmes">CeMAP Training</a>
-      <a href="#bespoke">Adviser Mentoring</a>
+      <a href="cemap-diagnostic">Free Diagnostic</a>
+      <a href="module-rescue">Module Rescue</a>
+      <a href="case-study-clinic">Case Study Clinic</a>
+      <a href="#programmes">Programmes</a>
+      <a href="#story">About</a>
       <a href="#faq">FAQs</a>
       <a href="#enquire">Contact</a>
     </nav>
     <div class="navcta">
-      <a class="btn btn-line" href="mortgage-career-discovery">Career Discovery</a>
-      <a class="btn btn-gold" href="#enquire">Enquire Now</a>
+      <a class="btn btn-gold" href="cemap-diagnostic">Book your free CeMAP Diagnostic</a>
     </div>
+    <a class="btn btn-gold mobile-pin" href="cemap-diagnostic">Diagnostic</a>
     <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
       <span class="mobile-toggle__bars"><span></span><span></span><span></span></span>
       <svg class="mobile-toggle__mark" viewBox="0 0 64 68" aria-hidden="true"><use href="#archMark"/></svg>
@@ -410,13 +424,14 @@
   <div class="mobile-menu" id="mobileMenu">
     <div class="wrap">
       <a href="#top">Home</a>
-      <a href="#story">About Us</a>
-      <a href="#programmes">CeMAP Training</a>
-      <a href="#bespoke">Adviser Mentoring</a>
+      <a href="cemap-diagnostic">Free Diagnostic</a>
+      <a href="module-rescue">Module Rescue</a>
+      <a href="case-study-clinic">Case Study Clinic</a>
+      <a href="#programmes">Programmes</a>
+      <a href="#story">About</a>
       <a href="#faq">FAQs</a>
       <a href="#enquire">Contact</a>
-      <a class="btn btn-line" href="mortgage-career-discovery">Career Discovery</a>
-      <a class="btn btn-gold" href="#enquire">Enquire Now</a>
+      <a class="btn btn-gold" href="cemap-diagnostic">Book your free CeMAP Diagnostic</a>
     </div>
   </div>
 </header>
@@ -424,20 +439,17 @@
 <section class="hero" id="top">
   <div class="wrap">
     <div class="reveal">
-      <span class="eyebrow"><svg class="arch-icon"><use href="#archMark"/></svg> Rockgate Academy &middot; CeMAP training</span>
-      <h1>Your mortgage career starts here. Your development doesn&rsquo;t stop at CeMAP.</h1>
-      <p class="hero-trio">Explore. Qualify. Develop.</p>
-      <p class="lede">Whether you&rsquo;re considering a career change, preparing for your CeMAP examinations, or looking to develop your skills as a mortgage adviser, Rockgate Academy provides personalised training, practical guidance and professional mentoring.</p>
-      <p class="lede" style="margin-top:10px;">Our approach combines structured learning, small-group teaching and individual attention to help you build knowledge, confidence and practical skills throughout your professional journey.</p>
+      <span class="eyebrow"><svg class="arch-icon"><use href="#archMark"/></svg> Rockgate Academy &middot; CeMAP coaching</span>
+      <h1 id="heroHeadline">Stuck on CeMAP? Find out why, then pass.</h1>
+      <p class="lede" id="heroSub">Failed a unit, resit booked, or stuck below 70% on mocks? In a free 30-minute diagnostic we find exactly where you're losing marks, then coach you through it 1:1 or in a small group, with a CeMAP-qualified broker who advises clients today.</p>
       <div class="herobtns">
-        <a class="btn btn-gold" href="#programmes">Explore Our Programmes</a>
-        <a class="btn btn-line" href="mortgage-career-discovery">Book a Career Discovery Consultation</a>
+        <a class="btn btn-gold" href="cemap-diagnostic">Book your free CeMAP Diagnostic</a>
+        <a class="btn btn-line" href="https://wa.me/447424707984?text=Hello%20Rockgate%20Academy%2C%20I%27m%20stuck%20on%20CeMAP%20and%20would%20like%20a%20free%20diagnostic." target="_blank" rel="noopener noreferrer">Message us on WhatsApp</a>
       </div>
       <ul class="checks">
-        <li><svg><use href="#checkMark"/></svg> Live online CeMAP training with structured weekly support</li>
-        <li><svg><use href="#checkMark"/></svg> Clear guidance for complete beginners and career changers</li>
-        <li><svg><use href="#checkMark"/></svg> Practical support on what comes after CeMAP</li>
-        <li><svg><use href="#checkMark"/></svg> A pathway designed to build confidence, clarity and direction</li>
+        <li><svg><use href="#checkMark"/></svg> Find out exactly why you're losing marks</li>
+        <li><svg><use href="#checkMark"/></svg> Help on one module, not a whole course</li>
+        <li><svg><use href="#checkMark"/></svg> Coached by a working mortgage broker</li>
       </ul>
       <a class="hero-credential" href="https://www.credly.com/badges/a9bd36ee-ad6c-4855-9663-d6faa9cea4ae/public_url" target="_blank" rel="noopener noreferrer">
         <img src="libf-badge.png" alt="LIBF Certified Mortgage Adviser badge">
@@ -465,57 +477,39 @@
 
 <div class="wrap"><div class="divider"><div class="line"></div><svg class="arch-icon"><use href="#archMark"/></svg><div class="line"></div></div></div>
 
-<section id="journey">
+<section id="familiar">
   <div class="wrap">
-    <span class="eyebrow">Three gates</span>
-    <h2 style="font-size:clamp(1.7rem,3vw,2.3rem); margin-top:14px;">Three gates. One professional journey.</h2>
-    <p class="lede" style="margin-top:14px;">At Rockgate Academy, the journey into mortgage advice begins before your first examination and continues after qualification. Choose the pathway that matches your next step.</p>
-    <div class="gates">
-      <div class="gate">
-        <div class="gate-num"><svg class="arch-icon"><use href="#archMark"/></svg><b>GATE ONE &middot; EXPLORE</b></div>
-        <h3>Discover your future</h3>
-        <p>Considering a career in mortgage advice? Explore the profession, qualifications, employment routes and whether the career aligns with your ambitions.</p>
-        <div class="gate-price">&pound;50 &middot; 30-minute online consultation</div>
-        <a class="btn btn-line" href="mortgage-career-discovery">Explore a Mortgage Career</a>
-      </div>
-      <div class="gate">
-        <div class="gate-num"><svg class="arch-icon"><use href="#archMark"/></svg><b>GATE TWO &middot; QUALIFY</b></div>
-        <h3>Build your knowledge</h3>
-        <p>Ready to prepare for CeMAP? Structured, tutor-led teaching, examination preparation, revision support and individual guidance in small groups.</p>
-        <div class="gate-price">CeMAP Core &pound;1,250 &middot; Complete Pathway &pound;1,950</div>
-        <a class="btn btn-gold" href="#programmes">Explore CeMAP Training</a>
-      </div>
-      <div class="gate">
-        <div class="gate-num"><svg class="arch-icon"><use href="#archMark"/></svg><b>GATE THREE &middot; DEVELOP</b></div>
-        <h3>Build professional confidence</h3>
-        <p>Qualified, but want to improve practical skills? Explore simulated interviews, sourcing exercises, case preparation and personalised mentoring.</p>
-        <div class="gate-price">One-to-one mentoring from &pound;120/hour</div>
-        <a class="btn btn-line" href="#bespoke">Explore Adviser Mentoring</a>
-      </div>
+    <span class="eyebrow">The pattern we keep seeing</span>
+    <h2 style="font-size:clamp(1.7rem,3vw,2.3rem); margin-top:14px;">Sound familiar?</h2>
+    <div class="familiar-grid">
+      <div class="familiar-card"><p>&ldquo;I failed by a couple of marks and don't know what to change.&rdquo;</p></div>
+      <div class="familiar-card"><p>&ldquo;My mocks are fine but the real exam felt different.&rdquo;</p></div>
+      <div class="familiar-card"><p>&ldquo;CeMAP 3 case studies just don't click.&rdquo;</p></div>
+      <div class="familiar-card"><p>&ldquo;I've watched hours of videos and I'm still stuck.&rdquo;</p></div>
     </div>
+    <p class="familiar-note">More content rarely fixes this. Finding the gap does. <a href="#how-it-works">How the diagnostic works &rarr;</a></p>
   </div>
 </section>
 
-<section class="story" id="story">
+<section id="how-it-works">
   <div class="wrap">
-    <div>
-      <span class="eyebrow">Our story</span>
-      <blockquote style="margin-top:16px;">&ldquo;Rockgate Academy was created from lived experience and from seeing how confusing the journey into mortgage advice can feel for people starting from scratch.&rdquo;</blockquote>
-      <p class="signoff">Too often, learners are shown how to pass exams, but not how to understand the bigger picture. For many people, CeMAP is only the beginning &mdash; the real challenge is understanding what comes next.</p>
-    </div>
-    <div style="display:grid; gap:22px;">
-      <div class="mission-box">
-        <span class="eyebrow">Our mission</span>
-        <p>To help learners build clarity, confidence, and career direction. We do not just want learners to memorise information &mdash; we want them to understand the industry, believe in their ability to succeed, and move forward with a stronger sense of direction.</p>
+    <span class="eyebrow">How it works</span>
+    <h2 style="font-size:clamp(1.7rem,3vw,2.3rem); margin-top:14px;">Three steps, built around your gaps</h2>
+    <div class="howsteps">
+      <div class="howstep">
+        <span class="stepnum">1</span>
+        <h3>Free diagnostic (30 min)</h3>
+        <p>We use our Known / Unsure / Gap method to map what you actually know against the syllabus, and you leave with a written gap map.</p>
       </div>
-      <div class="who">
-        <span class="eyebrow">Who we help</span>
-        <ul>
-          <li><svg><use href="#checkMark"/></svg> People starting from scratch</li>
-          <li><svg><use href="#checkMark"/></svg> Career changers entering financial services</li>
-          <li><svg><use href="#checkMark"/></svg> Aspiring mortgage advisers</li>
-          <li><svg><use href="#checkMark"/></svg> Learners who want more than just exam prep</li>
-        </ul>
+      <div class="howstep">
+        <span class="stepnum">2</span>
+        <h3>Targeted coaching</h3>
+        <p>Module Rescue (1:1) or the CeMAP 3 Case Study Clinic (small group), built around your exam date.</p>
+      </div>
+      <div class="howstep">
+        <span class="stepnum">3</span>
+        <h3>Sit the exam with a plan</h3>
+        <p>Exam technique, timing and a final check before you book or resit.</p>
       </div>
     </div>
   </div>
@@ -526,29 +520,66 @@
 <section id="programmes">
   <div class="wrap">
     <span class="eyebrow">Programmes</span>
-    <h2 class="prog-head" style="font-size:clamp(1.7rem,3vw,2.3rem); margin-top:14px;">Choose the level of support that fits your journey</h2>
-    <p class="lede" style="margin-top:14px;">Whether you want focused CeMAP support or a fuller pathway into the industry, Rockgate Academy offers a more structured and supportive route forward.</p>
-    <p class="prog-note">FIXED-FEE COHORT PROGRAMMES &middot; BEYOND CEMAP BILLED AT &pound;120/HR &middot; PAYMENTS SECURED VIA MONZO</p>
+    <h2 class="prog-head" style="font-size:clamp(1.7rem,3vw,2.3rem); margin-top:14px;">Choose the level of support that fits where you're stuck</h2>
+    <p class="lede" style="margin-top:14px;">Start with the free diagnostic. From there, get targeted help on one module, crack CeMAP 3 case studies, or build the whole qualification.</p>
+    <p class="prog-note">EXAM FEES ARE PAID TO LIBF SEPARATELY &middot; PAYMENTS SECURED VIA MONZO</p>
 
     <div class="plans">
       <div class="plan">
-        <h3>CeMAP Core</h3>
-        <div class="price"><b>&pound;1,250</b><span>COHORT PRICE</span></div>
-        <p class="desc">A structured live online programme for learners who want to get CeMAP-qualified with confidence.</p>
+        <h3>Free CeMAP Diagnostic</h3>
+        <div class="price"><b>Free</b><span>30 MINUTES</span></div>
+        <p class="desc">Find out exactly where you're losing marks, before you spend a penny.</p>
         <ul>
-          <li><svg><use href="#checkMark"/></svg> 8-week live online group programme</li>
-          <li><svg><use href="#checkMark"/></svg> Weekly teaching session</li>
-          <li><svg><use href="#checkMark"/></svg> Weekly revision / Q&amp;A clinic</li>
-          <li><svg><use href="#checkMark"/></svg> Replay access</li>
-          <li><svg><use href="#checkMark"/></svg> Study planner and supporting materials</li>
-          <li><svg><use href="#checkMark"/></svg> Exam strategy guidance</li>
+          <li><svg><use href="#checkMark"/></svg> Known / Unsure / Gap check against the syllabus</li>
+          <li><svg><use href="#checkMark"/></svg> Written gap map to keep</li>
+          <li><svg><use href="#checkMark"/></svg> Honest advice, even if you don't need us</li>
         </ul>
-        <a class="btn btn-line btn-block" href="#enquire">Secure Your Place</a>
-        <p class="plan-foot">Secure online, or enquire first with any questions</p>
+        <a class="btn btn-line btn-block" href="cemap-diagnostic">Book free diagnostic</a>
       </div>
 
       <div class="plan best">
-        <span class="flag">Best value</span>
+        <span class="flag">Most popular</span>
+        <h3>Module Rescue</h3>
+        <div class="price"><b>&pound;345</b><span>ONE MODULE</span></div>
+        <p class="desc">Four 1:1 sessions built around your exam or resit date, aimed only at your gaps.</p>
+        <ul>
+          <li><svg><use href="#checkMark"/></svg> 4 &times; 1:1 live sessions on one module</li>
+          <li><svg><use href="#checkMark"/></svg> Built around your exam or resit date</li>
+          <li><svg><use href="#checkMark"/></svg> Targeted practice on your gap areas</li>
+          <li><svg><use href="#checkMark"/></svg> Exam technique and timing</li>
+          <li><svg><use href="#checkMark"/></svg> WhatsApp questions between sessions</li>
+        </ul>
+        <a class="btn btn-gold btn-block" href="cemap-diagnostic">Start with a free diagnostic</a>
+      </div>
+
+      <div class="plan">
+        <h3>CeMAP 3 Case Study Clinic</h3>
+        <div class="price"><b>&pound;175</b><span>PER CLINIC</span></div>
+        <p class="desc">Case studies, made to click, taught by a broker who handles real cases.</p>
+        <ul>
+          <li><svg><use href="#checkMark"/></svg> 3 live small-group sessions (max 6)</li>
+          <li><svg><use href="#checkMark"/></svg> Worked case studies, step by step</li>
+          <li><svg><use href="#checkMark"/></svg> How examiners build case-study questions</li>
+          <li><svg><use href="#checkMark"/></svg> Taught by a broker who handles real cases</li>
+        </ul>
+        <a class="btn btn-line btn-block" href="case-study-clinic">Join the next clinic</a>
+      </div>
+
+      <div class="plan">
+        <h3>CeMAP Core</h3>
+        <div class="price"><b>&pound;1,250</b><span>OR 3 &times; &pound;425</span></div>
+        <p class="desc">A structured live online programme for learners who want to get CeMAP-qualified with confidence.</p>
+        <ul>
+          <li><svg><use href="#checkMark"/></svg> 8-week live small-group programme</li>
+          <li><svg><use href="#checkMark"/></svg> Weekly teaching session and Q&amp;A clinic</li>
+          <li><svg><use href="#checkMark"/></svg> Replays, study planner and materials</li>
+          <li><svg><use href="#checkMark"/></svg> Exam strategy guidance</li>
+        </ul>
+        <a class="btn btn-line btn-block" href="#enquire">Check cohort dates</a>
+        <p class="plan-foot">Secure online, or enquire first with any questions</p>
+      </div>
+
+      <div class="plan">
         <h3>Complete Pathway</h3>
         <div class="price"><b>&pound;1,950</b><span>COHORT PRICE</span></div>
         <p class="desc">The full Rockgate Academy journey &mdash; from qualification to career direction.</p>
@@ -556,32 +587,28 @@
           <li><svg><use href="#checkMark"/></svg> Everything in CeMAP Core</li>
           <li><svg><use href="#checkMark"/></svg> Everything in Beyond CeMAP</li>
           <li><svg><use href="#checkMark"/></svg> Bonus career clarity session</li>
-          <li><svg><use href="#checkMark"/></svg> The strongest option for the full journey</li>
         </ul>
-        <a class="btn btn-gold btn-block" href="#enquire">Secure Your Place</a>
+        <a class="btn btn-line btn-block" href="#enquire">Check cohort dates</a>
         <p class="plan-foot">Secure online, or enquire first with any questions</p>
       </div>
 
       <div class="plan">
         <h3>Beyond CeMAP</h3>
-        <div class="price"><b>&pound;120</b><span>PER HOUR</span></div>
+        <div class="price"><b>&pound;395</b><span>4-WEEK PROGRAMME</span></div>
         <p class="desc">A practical career pathway programme for people who want clarity on what comes after qualification.</p>
         <ul>
-          <li><svg><use href="#checkMark"/></svg> 4-week live online group programme</li>
+          <li><svg><use href="#checkMark"/></svg> 4-week live group programme</li>
           <li><svg><use href="#checkMark"/></svg> What happens after CeMAP</li>
           <li><svg><use href="#checkMark"/></svg> Regulated vs non-regulated roles explained simply</li>
-          <li><svg><use href="#checkMark"/></svg> Networks, firms, and career pathways</li>
-          <li><svg><use href="#checkMark"/></svg> CAS and competence explained in practical terms</li>
-          <li><svg><use href="#checkMark"/></svg> Action plan for your next steps</li>
+          <li><svg><use href="#checkMark"/></svg> Networks, firms and CAS explained</li>
+          <li><svg><use href="#checkMark"/></svg> Your next-step action plan</li>
         </ul>
-        <a class="btn btn-line btn-block" href="#enquire">Secure Your Place</a>
-        <p class="plan-foot">Secure online, or enquire first with any questions</p>
+        <a class="btn btn-line btn-block" href="#enquire">Enquire</a>
       </div>
     </div>
 
     <div class="prelaunch">
-      <p><strong>Now enrolling</strong>Rockgate Academy has moved beyond its founding cohort &mdash; live groups are running, with new cohorts opening on a rolling basis. Group sizes stay deliberately small, which is why pricing reflects close, high-touch delivery rather than a mass-market course.</p>
-      <a class="btn btn-gold" href="#enquire">Check Cohort Availability</a>
+      <p><strong>Already paid for Module Rescue?</strong>The full &pound;345 comes off CeMAP Core if you move up within 30 days.</p>
     </div>
   </div>
 </section>
@@ -623,42 +650,17 @@
 
 <div class="wrap"><div class="divider"><div class="line"></div><svg class="arch-icon"><use href="#archMark"/></svg><div class="line"></div></div></div>
 
-<section id="trust">
+<section id="proof" hidden>
   <div class="wrap">
-    <span class="eyebrow">Why Rockgate Academy</span>
-    <h2 style="font-size:clamp(1.7rem,3vw,2.3rem); margin-top:14px;">Built on clarity, guidance, and real understanding</h2>
-    <p class="lede" style="margin-top:14px;">Rockgate Academy was founded with a simple belief: people need more than just a course &mdash; they need a clearer path. This is not just about exam prep; it is about helping learners understand the bigger picture and take meaningful steps towards becoming career-ready professionals.</p>
-    <div class="features">
-      <div class="feature">
-        <svg class="arch-icon"><use href="#archMark"/></svg>
-        <h3>Personalised learning</h3>
-        <p>Guidance adapted to your experience, learning needs and professional ambitions.</p>
-      </div>
-      <div class="feature">
-        <svg class="arch-icon"><use href="#archMark"/></svg>
-        <h3>Small-group training</h3>
-        <p>Deliberately limited groups with room for questions and discussion.</p>
-      </div>
-      <div class="feature">
-        <svg class="arch-icon"><use href="#archMark"/></svg>
-        <h3>Practical industry perspective</h3>
-        <p>Technical knowledge connected to realistic mortgage industry examples.</p>
-      </div>
-      <div class="feature">
-        <svg class="arch-icon"><use href="#archMark"/></svg>
-        <h3>Beyond the examination</h3>
-        <p>Career exploration, CeMAP preparation and adviser skills development.</p>
-      </div>
-      <div class="feature">
-        <svg class="arch-icon"><use href="#archMark"/></svg>
-        <h3>Clear programme fees</h3>
-        <p>Transparent pricing and agreed scope before enrolment.</p>
-      </div>
+    <span class="eyebrow">Proof</span>
+    <h2 style="font-size:clamp(1.7rem,3vw,2.3rem); margin-top:14px;">What learners say</h2>
+    <div class="familiar-grid">
+      <!-- Add up to 3 real testimonials here (first name + module passed), then remove `hidden` from the parent <section id="proof"> above. Never invent testimonials. -->
     </div>
   </div>
 </section>
 
-<section class="founder">
+<section class="founder" id="founder">
   <div class="wrap">
     <figure class="founder-photo">
       <img src="naveed-mirza-founder.jpg" alt="Naveed Mirza, founder of Rockgate Academy">
@@ -677,7 +679,7 @@
           <span class="cred-sub">Certified Mortgage Adviser &middot; verify on Credly</span>
         </span>
       </a>
-      <blockquote style="margin-top:16px;">&ldquo;After CeMAP, I experienced something many learners do not always talk about openly &mdash; uncertainty about what came next. Passing exams was an important milestone, but it did not automatically bring clarity about the wider industry pathway, or how to move forward with confidence.&rdquo;</blockquote>
+      <blockquote style="margin-top:16px;">&ldquo;I studied for CeMAP on my own and was caught out. The real exam felt nothing like the mocks, and the case studies were the hardest part. Now I advise clients every week, and I coach learners through the exact places I got stuck.&rdquo;</blockquote>
       <blockquote>&ldquo;That experience, together with seeing how many aspiring professionals are left with similar questions, played a big part in the creation of Rockgate Academy.&rdquo;</blockquote>
       <span class="eyebrow" style="margin-top:24px; display:inline-block;">What learners can expect</span>
       <ul class="expect">
@@ -692,12 +694,61 @@
 
 <div class="wrap"><div class="divider"><div class="line"></div><svg class="arch-icon"><use href="#archMark"/></svg><div class="line"></div></div></div>
 
+<section id="journey">
+  <div class="wrap">
+    <span class="eyebrow">Three gates</span>
+    <h2 style="font-size:clamp(1.7rem,3vw,2.3rem); margin-top:14px;">Your whole journey</h2>
+    <p class="lede" style="margin-top:14px;">From finding out where you're stuck, to qualifying, to building confidence after CeMAP &mdash; choose the gate that matches where you are.</p>
+    <div class="gates">
+      <div class="gate">
+        <div class="gate-num"><svg class="arch-icon"><use href="#archMark"/></svg><b>GATE ONE &middot; EXPLORE</b></div>
+        <h3>Free diagnostic</h3>
+        <p>Not sure why you're stuck? A free 30-minute diagnostic maps exactly what you know against the syllabus, so you know precisely what to fix.</p>
+        <div class="gate-price">Free &middot; 30-minute diagnostic</div>
+        <a class="btn btn-gold" href="cemap-diagnostic">Book your free CeMAP Diagnostic</a>
+      </div>
+      <div class="gate">
+        <div class="gate-num"><svg class="arch-icon"><use href="#archMark"/></svg><b>GATE TWO &middot; QUALIFY</b></div>
+        <h3>Rescue, Clinic or Core</h3>
+        <p>Module Rescue fixes one weak module fast. The Case Study Clinic cracks CeMAP 3. CeMAP Core and the Complete Pathway build the full qualification from the ground up.</p>
+        <div class="gate-price">From &pound;175</div>
+        <a class="btn btn-line" href="#programmes">See Programmes &amp; Pricing</a>
+      </div>
+      <div class="gate">
+        <div class="gate-num"><svg class="arch-icon"><use href="#archMark"/></svg><b>GATE THREE &middot; DEVELOP</b></div>
+        <h3>Beyond CeMAP and case mentoring</h3>
+        <p>Qualified, but want to improve practical skills? Beyond CeMAP explains what happens next, and case mentoring gives you a second pair of eyes on real files.</p>
+        <div class="gate-price">Beyond CeMAP &pound;395 &middot; mentoring from &pound;120/hour</div>
+        <a class="btn btn-line" href="#programmes">Explore Beyond CeMAP</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="divider"><div class="line"></div><svg class="arch-icon"><use href="#archMark"/></svg><div class="line"></div></div></div>
+
 <section id="faq">
   <div class="wrap">
     <span class="eyebrow">Frequently asked questions</span>
     <h2 style="font-size:clamp(1.7rem,3vw,2.3rem); margin-top:14px;">Questions learners often ask</h2>
     <div class="faq">
       <details open>
+        <summary>I failed a CeMAP unit. Can you help? <span class="plus">+</span></summary>
+        <p class="a">Yes. This is exactly who we work with. Start with the free diagnostic and we'll show you where the marks went.</p>
+      </details>
+      <details>
+        <summary>Do I have to buy a whole course? <span class="plus">+</span></summary>
+        <p class="a">No. Module Rescue covers one module, and the Case Study Clinic covers CeMAP 3 case studies only.</p>
+      </details>
+      <details>
+        <summary>How is this different from video courses? <span class="plus">+</span></summary>
+        <p class="a">Videos give you more content. We find the specific topics you're unsure of and coach you on those, live.</p>
+      </details>
+      <details>
+        <summary>Who teaches? <span class="plus">+</span></summary>
+        <p class="a">Naveed Mirza, a CeMAP-qualified mortgage broker who advises clients today. <a href="#founder" style="color:var(--gold-deep); text-decoration:underline;">Read more about Naveed below.</a></p>
+      </details>
+      <details>
         <summary>Is Rockgate Academy only for people already in financial services? <span class="plus">+</span></summary>
         <p class="a">No. Rockgate Academy is designed to support beginners, career changers, and learners who want a clearer route into the mortgage industry.</p>
       </details>
@@ -733,11 +784,11 @@
   <div class="wrap">
     <div class="cta-copy">
       <span class="eyebrow">Take the next step</span>
-      <h2 style="margin-top:14px; font-size:clamp(1.8rem,3.4vw,2.5rem);">Ready to start your journey?</h2>
-      <p class="lede" style="margin-top:14px;">Whether you are starting from scratch, changing career, or looking for a clearer route into the mortgage industry, Rockgate Academy is here to help you move forward with confidence.</p>
-      <p style="font-family:'Fraunces',serif; font-style:italic; color:var(--gold); margin-top:18px; font-size:1.1rem;">Start with CeMAP. Build beyond it.</p>
+      <h2 style="margin-top:14px; font-size:clamp(1.8rem,3.4vw,2.5rem);">Ready to find out where you're stuck?</h2>
+      <p class="lede" style="margin-top:14px;">Start with a free 30-minute diagnostic, or tell us a bit more below and we'll point you to the right next step.</p>
+      <p style="font-family:'Fraunces',serif; font-style:italic; color:var(--gold); margin-top:18px; font-size:1.1rem;">Find the gap. Then close it.</p>
       <div class="herobtns">
-        <a class="btn btn-ondark" href="https://wa.me/447424707984?text=Hello%20Rockgate%20Academy%2C%20I%27d%20like%20to%20ask%20about%20your%20programmes." target="_blank" rel="noopener noreferrer">Message on WhatsApp</a>
+        <a class="btn btn-ondark" href="https://wa.me/447424707984?text=Hello%20Rockgate%20Academy%2C%20I%27m%20stuck%20on%20CeMAP%20and%20would%20like%20a%20free%20diagnostic." target="_blank" rel="noopener noreferrer">Message on WhatsApp</a>
       </div>
       <div class="safe-notes">
         <div class="safe-note">
@@ -771,13 +822,31 @@
         <div class="field">
           <label for="fprog">Programme of interest</label>
           <select id="fprog" name="programme">
-            <option>Mortgage Career Discovery Consultation &mdash; &pound;50</option>
-            <option>Complete Pathway &mdash; &pound;1,950</option>
+            <option>Free CeMAP Diagnostic</option>
+            <option>Module Rescue &mdash; &pound;345</option>
+            <option>CeMAP 3 Case Study Clinic &mdash; &pound;175</option>
             <option>CeMAP Core &mdash; &pound;1,250</option>
-            <option>Beyond CeMAP &mdash; &pound;120/hr</option>
-            <option>Bespoke Mortgage Case Support &mdash; from &pound;120/hr</option>
+            <option>Complete Pathway &mdash; &pound;1,950</option>
+            <option>Beyond CeMAP &mdash; &pound;395</option>
+            <option>Case support &mdash; from &pound;120/hr</option>
             <option>Not sure yet</option>
           </select>
+        </div>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label for="fmodule">Which module? (optional)</label>
+          <select id="fmodule" name="module">
+            <option value="">Not sure / not applicable</option>
+            <option>CeMAP 1 / FSRE</option>
+            <option>CeMAP 2</option>
+            <option>CeMAP 3</option>
+            <option>Not started</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="fdate">Exam or resit date (optional)</label>
+          <input id="fdate" name="examdate" type="date">
         </div>
       </div>
       <div class="field">
@@ -790,7 +859,7 @@
 
     <div class="booking" id="book">
       <h3>Prefer to pick a time yourself?</h3>
-      <p class="booking-intro">Book a free 30-minute intro call with Naveed to talk through the programmes and which one suits where you are. It's a general conversation about our training &mdash; not mortgage or financial advice.</p>
+      <p class="booking-intro">Book your free 30-minute CeMAP Diagnostic with Naveed directly. It's a focused look at where you're losing marks &mdash; not a sales call.</p>
       <div class="booking-gate" id="bookingGate">
         <p class="booking-caveat">Clicking below loads Calendly, a third-party booking service. Calendly may set cookies and process the details you enter, and its own privacy policy applies. Nothing from Calendly loads until you click. See our <a href="privacy.html#transfers">Privacy Policy</a>.</p>
         <button class="btn btn-gold" type="button" id="showBooking">Show available times</button>
@@ -810,6 +879,9 @@
       <div class="flinks">
         <a href="mailto:hello@rockgateacademy.co.uk">hello@rockgateacademy.co.uk</a>
         <a href="tel:+447424707984">+44 7424 707984</a>
+        <a href="cemap-diagnostic">Free Diagnostic</a>
+        <a href="module-rescue">Module Rescue</a>
+        <a href="case-study-clinic">Case Study Clinic</a>
         <a href="privacy.html">Privacy Policy</a>
         <a href="terms.html">Terms and Conditions</a>
         <span>&copy; 2026 Rockgate Academy Ltd. Registered in England and Wales, company no. 17153023.</span>
@@ -818,12 +890,22 @@
   </div>
 </footer>
 
-<a class="whatsapp-fab" href="https://wa.me/447424707984?text=Hello%20Rockgate%20Academy%2C%20I%27m%20interested%20in%20your%20programmes." target="_blank" rel="noopener noreferrer" aria-label="Message on WhatsApp">
+<a class="whatsapp-fab" href="https://wa.me/447424707984?text=Hello%20Rockgate%20Academy%2C%20I%27m%20stuck%20on%20CeMAP%20and%20would%20like%20a%20free%20diagnostic." target="_blank" rel="noopener noreferrer" aria-label="Message on WhatsApp">
   <svg viewBox="0 0 32 32"><use href="#iconWhatsapp"/></svg>
 </a>
 
 <script>
   (function () {
+    var ACTIVE_HEADLINE = 'A';
+    var HEADLINE_B = 'Resitting CeMAP? Get coached by a broker who advises clients today.';
+    if (ACTIVE_HEADLINE === 'B') {
+      var hh = document.getElementById('heroHeadline');
+      if (hh) hh.textContent = HEADLINE_B;
+    }
+
+    var src = '';
+    try { src = new URLSearchParams(window.location.search).get('src') || ''; } catch (e) {}
+
     var toggle = document.getElementById('mobileToggle');
     var menu = document.getElementById('mobileMenu');
     if (toggle && menu) {
@@ -854,8 +936,9 @@
           : 'background_color=ffffff&text_color=0f241f&primary_color=8c6435';
         var frame = document.createElement('iframe');
         frame.src = 'https://calendly.com/hello-rockgateacademy/30min?embed_domain=' +
-          encodeURIComponent(window.location.hostname) + '&embed_type=Inline&' + colours;
-        frame.title = 'Book a free intro call with Rockgate Academy';
+          encodeURIComponent(window.location.hostname) + '&embed_type=Inline&' + colours +
+          (src ? '&utm_source=' + encodeURIComponent(src) : '');
+        frame.title = 'Book your free CeMAP Diagnostic with Rockgate Academy';
         bookingEmbed.appendChild(frame);
         bookingGate.hidden = true;
         bookingEmbed.hidden = false;
@@ -872,6 +955,8 @@
         var email = document.getElementById('femail').value.trim();
         var phone = document.getElementById('fphone').value.trim();
         var programme = document.getElementById('fprog').value;
+        var module = document.getElementById('fmodule').value;
+        var examdate = document.getElementById('fdate').value;
         var message = document.getElementById('fmsg').value.trim();
 
         var subject = encodeURIComponent('Rockgate Academy Enquiry');
@@ -879,7 +964,10 @@
           'Name: ' + name + '\n' +
           'Email: ' + email + '\n' +
           'Phone: ' + (phone || 'Not provided') + '\n' +
-          'Programme: ' + programme + '\n\n' +
+          'Programme: ' + programme + '\n' +
+          'Module: ' + (module || 'Not provided') + '\n' +
+          'Exam/resit date: ' + (examdate || 'Not provided') + '\n' +
+          'Source: ' + (src || 'Not provided') + '\n\n' +
           'Enquiry:\n' + message
         );
         window.location.href = 'mailto:hello@rockgateacademy.co.uk?subject=' + subject + '&body=' + body;
